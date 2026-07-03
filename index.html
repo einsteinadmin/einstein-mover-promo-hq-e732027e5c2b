@@ -1211,7 +1211,7 @@
     }
   };
   var reactions = loadReactions();
-  var SEEDV = '3'; /* bump when the seed content changes — stomps stale cached seeds */
+  var SEEDV = '4'; /* bump when the seed content changes — stomps stale cached seeds */
   if (localStorage.getItem('mphq-seedv') !== SEEDV) {
     Object.keys(SEED).forEach(function (p) {
       if (!reactions[p]) reactions[p] = {};
