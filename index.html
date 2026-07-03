@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Mover Promotion HQ · Einstein Moving Company</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap');
+
+  :root {
+    --orange: #EF8B22;
+    --orange-dark: #CC5500;
+    --orange-50: #FDF2E5;
+    --blue:   #0979C3;
+    --navy:   #1B3A5C;
+    --ink:    #27343D;
+    --gray:   #6B6B6B;
+    --light:  #F7F5F1;
+    --line:   #E5E1DA;
+    --teal:   #0E8F84;
+    --red:    #C0392B;
+    --gold:   #B7791F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', -apple-system, sans-serif;
+    background: var(--light);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 56px 36px 100px; }
+
+  /* ─── Header ─── */
+  .eyebrow {
+    font-size: .72rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--orange-dark); margin-bottom: 10px;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.4rem; line-height: 1;
+    letter-spacing: 1px; color: var(--navy); margin-bottom: 12px;
+  }
+  .lede { font-size: 1.05rem; color: var(--gray); max-width: 780px; }
+  .meta { font-size: .8rem; color: #888; margin-top: 14px; }
+  .owner-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .owner-chip {
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    font-size: .78rem; font-weight: 600; color: var(--navy); padding: 6px 14px;
+  }
+  .owner-chip b { color: var(--orange-dark); }
+  .status-pill {
+    display: inline-block; margin-top: 18px; background: var(--orange-50);
+    border: 1px solid var(--orange); color: var(--orange-dark);
+    font-size: .74rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 20px;
+  }
+
+  /* ─── Status banner ─── */
+  .feature {
+    margin-top: 30px; background: #fff; border: 1px solid var(--line);
+    border-left: 4px solid var(--orange); border-radius: 12px; padding: 24px 28px;
+  }
+  .feature .ft-eyebrow {
+    font-size: .68rem; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--orange-dark); margin-bottom: 8px;
+  }
+  .feature h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 10px; }
+  .feature p { font-size: .95rem; color: var(--gray); }
+
+  /* ─── Section heads ─── */
+  .section-head { margin-top: 64px; margin-bottom: 22px; }
+  .section-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.1rem; letter-spacing: .5px; color: var(--navy); }
+  .section-head p { font-size: .92rem; color: var(--gray); max-width: 760px; margin-top: 6px; }
+
+  /* ─── Ladder table ─── */
+  .table-scroll { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .86rem; }
+  th {
+    font-family: 'Bebas Neue', sans-serif; font-size: .95rem; letter-spacing: 1px;
+    text-align: left; background: var(--navy); color: #fff; padding: 12px 14px; font-weight: 400;
+  }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.rung { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .tag {
+    display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: 1px;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 12px; margin-left: 6px; vertical-align: 1px;
+  }
+  .tag.new { background: var(--orange-50); color: var(--orange-dark); border: 1px solid var(--orange); }
+  .tag.contested { background: #FBEAE7; color: var(--red); border: 1px solid #E8B4AC; }
+
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-top: 16px; }
+  .rule {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: .85rem;
+  }
+  .rule b { color: var(--navy); display: block; margin-bottom: 3px; }
+  .rule.contested { border-left: 4px solid var(--red); }
+
+  /* ─── Locked positions ─── */
+  .locked-list { display: flex; flex-direction: column; gap: 10px; }
+  .locked {
+    display: flex; gap: 14px; background: #fff; border: 1px solid var(--line);
+    border-left: 4px solid var(--teal); border-radius: 10px; padding: 15px 18px; font-size: .9rem;
+  }
+  .locked .lock-ic { color: var(--teal); font-weight: 900; font-size: 1rem; }
+  .locked b { color: var(--navy); }
+
+  /* ─── Council ─── */
+  .borda-note { font-size: .82rem; color: var(--gray); margin: 10px 0 16px; }
+  td.first-votes { color: var(--orange-dark); font-weight: 700; }
+  .consensus-list { counter-reset: c; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+  .consensus {
+    display: flex; gap: 14px; background: #fff; border: 1px solid var(--line);
+    border-radius: 10px; padding: 15px 18px; font-size: .89rem;
+  }
+  .consensus .c-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--orange-dark); min-width: 24px; line-height: 1.2;
+  }
+  .consensus b { color: var(--navy); }
+  .tension {
+    margin-top: 22px; background: var(--orange-50); border: 1px solid var(--orange);
+    border-radius: 12px; padding: 20px 24px; font-size: .9rem;
+  }
+  .tension h3 { font-size: .98rem; color: var(--orange-dark); margin-bottom: 8px; }
+
+  details {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    margin-top: 10px; overflow: hidden;
+  }
+  details summary {
+    cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--navy);
+    font-size: .92rem; list-style: none; display: flex; align-items: center; gap: 10px;
+  }
+  details summary::before { content: '▸'; color: var(--orange-dark); transition: transform .15s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary:hover { background: var(--light); }
+  details .resp { padding: 4px 20px 18px; font-size: .87rem; color: var(--ink); line-height: 1.65; }
+  .voice-tag {
+    font-size: .62rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    background: var(--navy); color: #fff; padding: 2px 8px; border-radius: 12px;
+  }
+  .voice-tag.house { background: var(--orange-dark); }
+
+  /* ─── Decision cards ─── */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .dcard {
+    background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--orange);
+    border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column;
+  }
+  .dcard .d-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--orange-dark); line-height: 1; margin-bottom: 8px;
+  }
+  .dcard h3 { font-size: .96rem; color: var(--navy); margin-bottom: 6px; }
+  .dcard p { font-size: .84rem; color: var(--gray); margin-bottom: 12px; flex: 1; }
+  .owes {
+    font-size: .74rem; font-weight: 700; color: var(--navy);
+    background: var(--light); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px;
+  }
+  .owes b { color: var(--orange-dark); }
+
+  /* ─── Data asks ─── */
+  .ask-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 16px; }
+  .ask {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--blue);
+    border-radius: 12px; padding: 18px 22px;
+  }
+  .ask h3 { font-size: .98rem; color: var(--navy); margin-bottom: 8px; }
+  .ask ul { margin-left: 18px; font-size: .86rem; color: var(--ink); }
+  .ask li { margin-bottom: 5px; }
+  .ask .due { font-size: .76rem; font-weight: 700; color: var(--blue); margin-top: 10px; }
+
+  /* ─── Roadmap ─── */
+  .phases { display: flex; flex-direction: column; gap: 14px; }
+  .phase {
+    display: flex; gap: 20px; background: #fff; border: 1px solid var(--line);
+    border-radius: 12px; padding: 20px 24px;
+  }
+  .ph-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: var(--line); min-width: 44px; line-height: 1; }
+  .phase h3 { font-size: 1.02rem; color: var(--navy); margin-bottom: 6px; }
+  .phase p { font-size: .88rem; color: var(--gray); }
+  .ph-status {
+    display: inline-block; font-size: .64rem; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-left: 8px;
+    vertical-align: 2px; background: #eee; color: var(--gray);
+  }
+  .phase.now { border-left: 4px solid var(--orange); }
+  .phase.now .ph-status { background: var(--orange-50); color: var(--orange-dark); }
+  .phase.next { border-left: 4px solid var(--line); opacity: .9; }
+
+  /* ─── Changelog ─── */
+  .changelog { display: flex; flex-direction: column; }
+  .log-entry { display: flex; gap: 20px; padding: 16px 4px; border-bottom: 1px solid var(--line); }
+  .log-date {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--orange-dark);
+    min-width: 92px; letter-spacing: .5px; padding-top: 2px;
+  }
+  .log-body { font-size: .88rem; color: var(--ink); }
+  .log-body .next { color: var(--gray); font-size: .82rem; display: block; margin-top: 3px; }
+
+  footer {
+    margin-top: 80px; font-size: .78rem; color: #888;
+    border-top: 1px solid var(--line); padding-top: 18px; line-height: 1.7;
+  }
+  footer b { color: var(--navy); }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 36px 18px 70px; }
+    h1 { font-size: 2.3rem; }
+    .phase, .log-entry, .consensus, .locked { flex-direction: column; gap: 8px; }
+    .ask-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .wrap { padding: 0; max-width: none; }
+    details { break-inside: avoid; }
+    details[open] summary::before { content: '▾'; }
+    .dcard, .phase, .consensus, .locked, .rule { break-inside: avoid; }
+    .feature, .tension { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══ 1. CONTEXT HEADER ═══ -->
+  <div class="eyebrow">Employee Experience · Finance · Project HQ</div>
+  <h1>Mover Promotion HQ</h1>
+  <p class="lede">
+    One promotion path for movers through the lead track — minimum hours + sustained performance
+    bars + monthly review, replacing ad-hoc promotion calls with a published, backtested ladder.
+    Purpose: fairness and pay equity first. This page is the source of truth for the framework,
+    the council verdict, the open decisions, and where every workstream stands.
+  </p>
+  <div class="owner-row">
+    <span class="owner-chip"><b>Anne</b> — framework</span>
+    <span class="owner-chip"><b>Paul</b> — comp / cost</span>
+    <span class="owner-chip"><b>Cameron</b> — design calls</span>
+  </div>
+  <p class="meta">Built with Albert (Cameron's COS) · Linda (Anne) + Clark (Paul) edit via the repo · Started 7/2/2026 ·
+  Canonical: <code>Supporting Projects/Anne - Employee Experience/Performance Management Framework/mover-promotion-hq/</code></p>
+  <div class="status-pill">Design Phase — Workshop before QGR (7/29–30) · Rollout candidate: Q3 "Back to School" training theme</div>
+
+  <!-- ═══ Status banner ═══ -->
+  <div class="feature">
+    <div class="ft-eyebrow">Where it stands today</div>
+    <h2>Draft v1 exists, positions are locked, the council has spoken — now the workshop decides.</h2>
+    <p>Anne + Paul drafted the ladder 7/2. Cameron walked it the same day and locked his positions,
+    then ran a six-voice consultant council (cross-ranked). Two data asks are in flight (Matisen backtest,
+    Ben cost model). Ten open decisions below are the workshop agenda — nothing publishes to the field
+    until the backtest and cost model land.</p>
+  </div>
+
+  <!-- ═══ 2. THE FRAMEWORK ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">Draft v1 · Anne + Paul · 7/2/2026</div>
+    <h2>The Framework</h2>
+    <p>The ladder as drafted. Two elements are contested by the council and flagged below — see the
+    Open Decisions board before treating any bar or rule as final.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Rung</th><th>Min. Hours</th><th>Performance Bar</th><th>Pay Range</th><th>PTO</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rung">Lead in Training (LIT)</td><td>480</td><td>7.0</td><td>$19–20</td><td>—</td></tr>
+        <tr><td class="rung">Junior Lead</td><td>962</td><td>7.5</td><td>$20–21</td><td>—</td></tr>
+        <tr><td class="rung">Regular Lead</td><td>962</td><td>8.0</td><td>$20.50–21.50</td><td>—</td></tr>
+        <tr><td class="rung">Senior Lead <span class="tag new">New rung — unpriced</span></td><td>962</td><td>9.0</td><td>$21–22</td><td>—</td></tr>
+        <tr><td class="rung">Master Lead</td><td>1,924</td><td>9.5</td><td>$21.50–22.50</td><td>+5 days</td></tr>
+        <tr><td class="rung">Lead General</td><td>—</td><td>—</td><td>$22–23</td><td>+10 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rule contested"><b>Sustained = 3 consecutive months at bar</b>
+      Draft says one month below the bar = full streak reset. <span class="tag contested">Contested</span> — the council
+      killed the full reset; see Decision #1.</div>
+    <div class="rule"><b>Monthly review, effective the 1st</b>
+      Promotion status reviewed every month; changes take effect the first of the following month.</div>
+    <div class="rule"><b>Eligibility ≠ entitlement</b>
+      Clearing the bar makes a mover eligible; it does not auto-confer the rung on its own.</div>
+    <div class="rule contested"><b>Fast-track = 4 consecutive perfect-10 months</b>
+      With a 560-hour floor. <span class="tag contested">Contested</span> — council says perfection is a
+      mirage, not a path; see Decision #4.</div>
+    <div class="rule"><b>Part-timers: same bars, slower accrual</b>
+      Identical performance standards; the hours minimums simply take longer to reach.</div>
+    <div class="rule"><b>CHOICES = separate pass/fail gate</b>
+      Core values are a gate, never points in the score — one number never drives exit, promotion, and pay.</div>
+    <div class="rule"><b>Score = Performance Matrix</b>
+      Attendance, damages, driver score, contract efficiency. Only attendance + damages are weighted so far
+      (50/50) — driver score and contract efficiency are unweighted. See Decision #5.</div>
+  </div>
+
+  <!-- ═══ 3. CAMERON'S LOCKED POSITIONS ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">Committed · 7/2/2026</div>
+    <h2>Cameron's Locked Positions</h2>
+    <p>These are settled design calls, not workshop questions. Everything else on this page bends; these don't.</p>
+  </div>
+
+  <div class="locked-list">
+    <div class="locked"><span class="lock-ic">✓</span><span><b>Purpose = fairness and pay equity first.</b>
+      The mediocre 2-year lead out-earning the excellent 6-month lead is the problem this ladder exists to fix.</span></div>
+    <div class="locked"><span class="lock-ic">✓</span><span><b>Seats gate only up to Lead. Above Lead = automatic pay grades — NO vacancy caps.</b>
+      Roles get gated by seats; pay grades get gated by value. Nobody waits on an opening to be paid what they've earned.</span></div>
+    <div class="locked"><span class="lock-ic">✓</span><span><b>NO top-X% bar calibration.</b>
+      Forced distribution is against the comp philosophy. If everyone honestly clears a 9, pay them all.</span></div>
+    <div class="locked"><span class="lock-ic">✓</span><span><b>Backtest before publishing.</b>
+      No bar, rung, or rule goes to the field until it's been run retroactively against real mover data.</span></div>
+    <div class="locked"><span class="lock-ic">✓</span><span><b>Fast-track yes — but calibrated to reality.</b>
+      An expedited path should exist; a bar nobody can clear is a poster, not a path.</span></div>
+  </div>
+
+  <!-- ═══ 4. COUNCIL VERDICT ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">6-voice /consultants deep run · cross-ranked · 7/2/2026</div>
+    <h2>Council Verdict</h2>
+    <p>Six voices reviewed the draft blind and cross-ranked each other's responses (Borda count —
+    higher is better). The Einstein Advocate is the house voice: it argues from Einstein's own locked
+    doctrine, so its high placement is a signal the draft collides with existing commitments.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Voice</th><th>Borda Score</th><th>First-Place Votes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rung">Harnish-Ross (E)</td><td>23</td><td class="first-votes">4</td></tr>
+        <tr><td class="rung">Lencioni (F)</td><td>19</td><td>—</td></tr>
+        <tr><td class="rung">Einstein Advocate (D) <span class="tag new">House voice</span></td><td>18</td><td>1</td></tr>
+        <tr><td class="rung">Collins (B)</td><td>13</td><td class="first-votes">1</td></tr>
+        <tr><td class="rung">Weaver (C)</td><td>10</td><td>—</td></tr>
+        <tr><td class="rung">Horstman (A)</td><td>7</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="borda-note">Harnish-Ross won decisively on the money questions (score integrity, bonus-mechanic conflict,
+  Senior Lead pricing). The Advocate placing third flags that the draft reopens locked comp doctrine mid-year.</p>
+
+  <div class="consensus-list">
+    <div class="consensus"><div class="c-num">1</div><div><b>Backtest + cost BEFORE publishing anything.</b>
+      Every voice lands here. No bar, rung, or reset rule reaches the field until the retroactive backtest
+      proves the score is gaming-proof and the CFO has priced the additions.</div></div>
+    <div class="consensus"><div class="c-num">2</div><div><b>One-month-full-reset is dead.</b>
+      Replace with "3 of the last 4 months at bar, none below a floor" or pause-not-reset — the backtest
+      decides which. At 81% turnover the enemy is discouragement, not laxity.</div></div>
+    <div class="consensus"><div class="c-num">3</div><div><b>No new bonus mechanic mid-year.</b>
+      The ladder moves BASE pay; variable stays the locked $2–3/hr hourly structure. Senior Lead gets priced
+      by Ben before it exists — the May comp lock doesn't reopen through a side door.</div></div>
+    <div class="consensus"><div class="c-num">4</div><div><b>Fast-track = 4 months "Outstanding," not perfection.</b>
+      Four consecutive perfect 10s once damages count isn't an expedited path — it's a mirage.</div></div>
+    <div class="consensus"><div class="c-num">5</div><div><b>CHOICES gate becomes EVIDENTIARY.</b>
+      No fail without a documented redirect trail (Einstein Coaching Protocol), 2–3 written behavioral
+      observations, a second reader, and a mandatory named-virtue conversation on any block. Never a silent veto.</div></div>
+    <div class="consensus"><div class="c-num">6</div><div><b>Transparency: every mover sees score, bar, and clock in the app monthly.</b>
+      No mover learns a status change from a spreadsheet — status changes are delivered by a human before they take effect.</div></div>
+    <div class="consensus"><div class="c-num">7</div><div><b>Dallas pilot alongside the training-app beta before company-wide.</b>
+      Fire bullets before the cannonball: measure whether promoted movers season faster and stay longer, then roll out.</div></div>
+  </div>
+
+  <div class="tension">
+    <h3>Key tension preserved — Collins: does the ladder CAUSE seasoning, or RECORD it?</h3>
+    <p>Collins argues hours-based gates make tenure the input when the flywheel says competence velocity is
+    the input — a ladder paced to the attrition curve institutionalizes the leak it exists to fix.
+    His position drew 1 first-place vote and 4 argue-againsts. <b>Resolution on the table:</b> hours floors
+    ship now; competence gates (training-app sprints + inspected evals) get piloted in Dallas and promoted
+    into the ladder as the instruments prove out.</p>
+  </div>
+
+  <div class="section-head" style="margin-top:40px;">
+    <div class="eyebrow">Full responses</div>
+    <h2 style="font-size:1.6rem;">Read the council in full</h2>
+    <p>Each voice's complete response, verbatim from the 7/2 run.</p>
+  </div>
+
+  <details>
+    <summary>Horstman (Response A) <span class="voice-tag">Manager Tools</span></summary>
+    <div class="resp">The scoreboard will crowd out feedback if you let it. A score documents feedback; it never delivers it. This design has that trap, and monthly re-qualification makes it worse. A BM who's underwater — new huddle cadence, hiring, Training Days, 81% turnover — will do the monthly review INSTEAD of feedback, not in addition to it. The system becomes the manager. "Check the matrix" replaces "when you left the dolly strap loose, here's what happened." That's role power substituting for relationship power, and relationship power is the only thing that retains movers you've already paid to season. No mover should ever be surprised by their status — that's the test. If a mover learns on the 1st that his clock reset to zero and hears it from a spreadsheet, not his manager, you've built a demotivation engine with good intentions. The one-month full reset is indefensible from a manager's chair: one bad month — a damage claim not fully his fault, a sick kid wrecking attendance — and he's back at zero? Managers will either stop delivering that news honestly or start gaming the inputs. Try three of the last four months at bar, or reset to month two, not zero. On the CEO's framing: fairness through automaticity is right, but it doesn't remove subjectivity — it RELOCATES it. Damages get contested, attendance gets coded, evals get signed. Whoever adjudicates those edge cases holds the real promotion power, invisibly; name that adjudication process now or fairness dies in the appeals. "Great metrics, bad attitude" is an adjusting-feedback problem: the CHOICES pass/fail only works if managers have documented, delivered redirects before the gate fires — wire it to the Coaching Protocol; no CHOICES fail without a feedback trail. And do not ship this as a manual monthly BM task — you'll get pencil-whipped reviews by month three. STRONGEST REC: every promotion-status change — up, down, or clock-reset — is delivered verbally by the manager in a scheduled one-on-one before it takes effect; the conversation, not the matrix, is the management.</div>
+  </details>
+
+  <details>
+    <summary>Collins (Response B) <span class="voice-tag">Good to Great</span></summary>
+    <div class="resp">Confront the brutal fact: "aligns with our attrition curve" should stop you cold. Your own flywheel names 81% turnover as the leak that's killing you; a ladder calibrated to the attrition curve isn't a development engine — it's a survivorship monument. It documents who happened to still be on the bus. Your stated strategy is seasoning acceleration, one year to four months; a ladder built on 480-hour and 1,924-hour gates is designed against your own hedgehog — it makes tenure the input when your flywheel says competence velocity is the input. Hours are a proxy for reps; measure the reps. If a mover demonstrates Master-level competence in six months, your flywheel wants him leading crews in six months — the hours minimum tells him to wait, and waiting movers quit. The fast-track (four perfect-10 months) is the tell: you already believe demonstrated performance can substitute for time. Now invert the architecture — make demonstrated, inspected competence the primary gate at EVERY rung, with hours as a floor for safety and credibility, not the pacing mechanism. That the training-app sprints gate only the first rung is backwards; your best development asset touches the ladder exactly once. On the CEO's pay-them-all stance: rigorous, not undisciplined — provided the bars are honest. First Who says keep the right people; artificial vacancy caps and forced rankings drive right people off the bus to satisfy a spreadsheet. A 9 is a 9. But the discipline lives in the standard: bars only mean something if managers actually fail people. The retroactive backtest is your bullet before the cannonball — fire more bullets: pilot the ladder in the Dallas beta branches alongside the training app, measure whether promoted movers season faster and stay longer, THEN roll company-wide. The monthly-review steady-bars element is the strongest part of the draft; keep it. The question for the authors: does this ladder cause seasoning, or record it? STRONGEST REC: rebuild every rung above the first around demonstrated competence gates (training sprints + inspected evals) with hours as a floor only — a ladder paced to your attrition curve institutionalizes the very leak your flywheel exists to fix.</div>
+  </details>
+
+  <details>
+    <summary>Weaver (Response C) <span class="voice-tag">Compensation</span></summary>
+    <div class="resp">This is more structure than most $24M companies ever build; the bones are right. You're right about pay grades above Lead: open-seat gating on pay levels is a vacancy lottery, not a comp system. Four-to-six levels per job with smaller increments SAVES money by keeping people on board while they grow more valuable — your ladder does that. Roles get gated by seats; pay grades get gated by value. You're also right to reject top-X% calibration, but for a different reason: forced distribution is rank-order thinking; you've built market pricing with performance gates. If everyone clears a 9, the question isn't "did we set the bar wrong" — it's "does the market price of a 9-performing lead support $21?" That's a data question you answer annually, not a quota. Where I'll challenge the CEO: "sustained performance" with a one-bad-month reset is a science rule with no art in it. A damage claim in month three of a 962-hour climb erases a year of excellence — the "don't let data blind you to common sense" trap. Use a 4-level scale (Developing/Meets/Exceeds/Outstanding); let one Meets-month PAUSE the clock rather than reset it; reserve resets for Developing. The fast-track as written — four consecutive perfect 10s once damages count — isn't an expedited path, it's a mirage; make it 4 months of Outstanding, not perfection. Run the backtest BEFORE you announce anything: a system that surprises payroll surprises trust. And the incentive administration is only half-built — you should have a system that monitors progress toward incentives and gives regular reports to employees. Every mover should see their score, their bar, and their clock monthly in the app; that transparency is what makes the framework fund itself. Keep CHOICES out of the number (correct), but require documented incidents, not vibes. STRONGEST REC: replace one-month-below-resets-everything with a 4-level rating scale where only "Developing" resets the clock — a pay system that punishes one imperfect month in an 81%-turnover industry teaches your best movers the ladder is rigged, and they'll climb someone else's.</div>
+  </details>
+
+  <details>
+    <summary>Einstein Advocate (Response D) <span class="voice-tag house">House Voice</span></summary>
+    <div class="resp">Where this turns the flywheel, concede plainly: a visible ladder with rising bars and monthly reviews is exactly "Build Field-Ready Crews Fast" made legible, and it ladders cleanly into the Q3 training theme and the training app. The separate CHOICES pass/fail gate honors the prior council lock — don't let one number drive exit, promotion, and pay. The CEO's no-vacancy-caps and rejection of top-X% calibration are pure house economics: if everyone honestly clears a 9, pay them all. Three doctrinal costs to name consciously: (1) The Senior Lead rung + "quarterly performance bonus" REOPENS A LOCKED COMP DECISION MID-YEAR. The May ladder was locked with hourly variable pay, $586K already added, 37.8% against a 40% ceiling, NI already dented. Comp decisions are precedent-setting — one mid-year reopen becomes the rule. If Senior Lead ships, it ships in the locked structure (hourly variable), not a new bonus mechanic. (2) One-month-below-resets-the-streak flirts with the ultimatum line: "pay corrections are not performance ultimatums" cuts both ways — don't let every performance dip become a pay event. A silent streak reset delivers a comp consequence where the Coaching Protocol demands a verbal redirect first; a score that resets pay progress without a human conversation routes around the development engine. (3) CHOICES pass/fail with no named judge risks making the values a checkbox — attitude currently lives nowhere in the weights; that's the real measurement gap. Backtest the bars before locking 7→9.5 — earned doctrine beats aspirational thresholds. STRONGEST REC: ship the ladder-with-rising-bars inside the LOCKED comp structure — no new bonus mechanic mid-year — and make any streak reset fire only after a documented verbal redirect, so the Coaching Protocol delivers the message before the scoreboard does.</div>
+  </details>
+
+  <details>
+    <summary>Harnish-Ross (Response E) <span class="voice-tag">Scaling Up · Borda Winner</span></summary>
+    <div class="resp">Good bones, three fights to pick. First, the fairness framing is right — fairness, not sameness; the mediocre 2-year lead out-earning the excellent 6-month lead is exactly tenure entitlement. And rejecting "only the top X% clear" is correct — that's ratcheting, and ratcheting is perceived as unfair and is detrimental to performance. If everyone honestly clears a 9, pay them all. But notice the load on the word "honestly": with the score built on two metrics weighted 50/50 and score integrity self-declared as the load-bearing wall, you've built a skyscraper on a two-legged stool. Run the backtest BEFORE you publish a single bar — what gets measured gets managed, and what gets MISmeasured gets gamed. Second, the one-bad-month reset is a carrot problem in a stick costume: pay is a status-laden, envy-inspiring, politically charged monster, and nothing feeds it like a mover who held a 9 for two months, slipped to 6.8, and restarts at zero. With 81% turnover your enemy is discouragement, not laxity — use rolling 3-of-4 or average-with-floor. Same logic kills the perfect-10 fast-track: a bar nobody clears isn't an expedited path, it's a poster. Third — the real landmine — resolve the quarterly-bonus vs hourly-variable conflict BEFORE rollout. Two overlapping variable schemes is how comp stays a topic instead of getting right and out of sight. Pick one lane: the promotion ladder moves BASE (competencies + sustained performance + market); variable stays the existing $2–$3/hr, period. And at 37.8% against a 40% ceiling with a $586K raise already denting NI, adding a Senior Lead rung the May ladder never priced is not a rounding error — the CFO needs to cost it first. Evals and reviews join the matrix eventually, but only individually-controllable, backtested inputs; "great metrics, bad attitude" belongs in the CHOICES gate and coaching. STRONGEST REC: publish no bar, rung, or reset rule until the retroactive backtest proves the score is gaming-proof and the CFO has priced Senior Lead plus the bonus-conflict resolution against the 40% ceiling — score integrity first, ladder second.</div>
+  </details>
+
+  <details>
+    <summary>Lencioni (Response F) <span class="voice-tag">Ideal Team Player</span></summary>
+    <div class="resp">Keeping CHOICES out of the number is exactly right: the moment values become points, they become currency, and currency gets counterfeited. But challenge the framing: you're calling these rungs "pay grades." Some are. A lead runs a crew — that's a first LEADERSHIP seat, and it's where most companies quietly promote their Skillful Politicians. The "dream team but not player" mover isn't an edge case; he's the PREDICTABLE OUTPUT of a metrics-first ladder. Attendance, damages, driver score, contract efficiency — a hungry person with no humility can max every one while making three teammates want to quit. The metrics measure Hungry beautifully; they measure Humble and Smart not at all. So split the ladder: below crew leadership, automatic pay progression on the matrix is fine and fair; at the leadership threshold, human judgment must come back in — deliberately, not through a back door. On the pass/fail gate: pass/fail is the right shape, but "who judges" is the wrong question until you fix "with what evidence." A manager's gut is subjectivity; a manager's gut plus documented behavioral evidence is judgment. The instrument already exists — the coaching protocol. Make the gate evidentiary: no open redirect pattern in the last 90 days, plus two or three written behavioral observations tied to specific CHOICES behaviors, reviewed by manager AND one peer-level second reader. Two-actor sign-off is already proven in the training app — bring those on-site evals in; digitally captured, dual-signed evidence is the antidote to both manager favoritism and manager laziness. One caution: at 81% turnover, don't let the values gate become a silent veto nobody explains. A failed gate must trigger a named-virtue conversation — "you're hungry and smart; here's where humble is missing" — with a coaching window. If a mover learns he was blocked and nobody told him why, you've taught your best people the system is political — the exact disease you built this to cure. STRONGEST REC: keep the matrix as the automatic pay engine below crew leadership, but make every promotion into a lead seat require documented, two-signature Humble-Hungry-Smart evidence plus a face-to-face virtues conversation — never a number alone.</div>
+  </details>
+
+  <!-- ═══ 5. OPEN DECISIONS BOARD ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">The workshop core</div>
+    <h2>Open Decisions Board</h2>
+    <p>Ten calls stand between draft v1 and a publishable framework. Each card names the options and who
+    owes what. Work these in the Cameron + Anne + Paul workshop; strike them as they lock.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="dcard">
+      <div class="d-num">01</div>
+      <h3>Streak rule</h3>
+      <p>Full reset (draft) vs "3 of last 4 months, none below a floor" vs pause-not-reset. The council
+      killed the full reset; the backtest shows how often clean streaks contain a single bad month.</p>
+      <div class="owes"><b>Backtest decides → Cameron ratifies</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">02</div>
+      <h3>Senior Lead rung</h3>
+      <p>Ships inside the locked comp structure after Ben prices it — or waits for the next comp cycle.
+      Either way, it does not exist until it's costed against the 40% ceiling.</p>
+      <div class="owes"><b>Paul + Ben</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">03</div>
+      <h3>Bonus column</h3>
+      <p>Confirm the ladder moves BASE only — the hourly variable ($2–3/hr) stays exactly as locked in May.
+      No quarterly bonus mechanic mid-year.</p>
+      <div class="owes"><b>Paul</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">04</div>
+      <h3>Fast-track calibration</h3>
+      <p>Replace 4 perfect-10 months with 4 months at "Outstanding" — set the actual threshold off the
+      backtest's attainability read so the path is real, not a poster.</p>
+      <div class="owes"><b>Backtest + Anne</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">05</div>
+      <h3>Performance Matrix weights</h3>
+      <p>Driver score + contract efficiency are currently unweighted. Do on-site evals (training app,
+      two-actor sign-off) join the matrix now or at the Dallas pilot?</p>
+      <div class="owes"><b>Anne + Mike + Matisen</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">06</div>
+      <h3>CHOICES gate evidence rules</h3>
+      <p>Codify the evidentiary gate: documented redirect trail (Coaching Protocol), 2–3 written behavioral
+      observations, second reader, mandatory named-virtue conversation on any block.</p>
+      <div class="owes"><b>Anne w/ Brian + Mike</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">07</div>
+      <h3>Hours basis: 35 vs 40</h3>
+      <p>What does a "month of hours" mean for accrual math? Cameron leans 35 standardized.</p>
+      <div class="owes"><b>Anne</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">08</div>
+      <h3>Streak gaps during leave</h3>
+      <p>Medical, parental, or other protected leave in the middle of a streak: pause the clock or reset it?
+      (Pause is the obvious lean — needs a written rule.)</p>
+      <div class="owes"><b>Anne</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">09</div>
+      <h3>PTO integration</h3>
+      <p>Accrual decided directionally (Jan 1 start, Ben modeling, payout-at-term leaning yes, Paul wants
+      ladder-gated eligibility). Design it as ONE system with this ladder, not two parallel announcements.</p>
+      <div class="owes"><b>Anne + Paul + Ben</b></div>
+    </div>
+    <div class="dcard">
+      <div class="d-num">10</div>
+      <h3>Automation gate</h3>
+      <p>The Rippling + Games data pull must be automated before any manual monthly BM review ships —
+      manual reviews get pencil-whipped by month three.</p>
+      <div class="owes"><b>Matisen</b></div>
+    </div>
+  </div>
+
+  <!-- ═══ 6. DATA ASKS IN FLIGHT ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">Blocking inputs</div>
+    <h2>Data Asks in Flight</h2>
+    <p>Two analyses gate most of the decisions board. Nothing publishes before both land.</p>
+  </div>
+
+  <div class="ask-grid">
+    <div class="ask">
+      <h3>Matisen — retroactive backtest</h3>
+      <ul>
+        <li>Score distribution vs each proposed bar (7 → 9.5)</li>
+        <li>How often a clean streak contains a single bad month (streak-rule input)</li>
+        <li>Fast-track attainability at various thresholds</li>
+        <li>Baseline matrix scores by current level</li>
+      </ul>
+      <div class="due">Feeds Decisions #1, #4, #5</div>
+    </div>
+    <div class="ask">
+      <h3>Ben (Prosper) — cost model</h3>
+      <ul>
+        <li>Senior Lead rung pricing inside the locked structure</li>
+        <li>PTO accrual cost + payout-at-termination modeling</li>
+        <li>All of it vs the 40% mover-comp-to-revenue ceiling</li>
+      </ul>
+      <div class="due">Queued for the 7/9 Prosper call · Feeds Decisions #2, #3, #9</div>
+    </div>
+  </div>
+
+  <!-- ═══ 7. ROADMAP ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">Progression</div>
+    <h2>The Roadmap</h2>
+    <p>Design → data → decisions → pilot → rollout. PTO accrual announce rides the same Jan 1 comms.</p>
+  </div>
+
+  <div class="phases">
+    <div class="phase now">
+      <div class="ph-num">01</div>
+      <div>
+        <h3>Design workshop <span class="ph-status">Now</span></h3>
+        <p>Cameron + Anne + Paul, week of 7/8. Work the Open Decisions Board top to bottom;
+        strike what locks, name owners on what doesn't.</p>
+      </div>
+    </div>
+    <div class="phase next">
+      <div class="ph-num">02</div>
+      <div>
+        <h3>Backtest + cost model land <span class="ph-status">Next</span></h3>
+        <p>Matisen's backtest + Ben's Senior Lead / PTO cost model (7/9 Prosper call kicks off Ben's piece).
+        These resolve the streak rule, fast-track threshold, and pricing questions.</p>
+      </div>
+    </div>
+    <div class="phase next">
+      <div class="ph-num">03</div>
+      <div>
+        <h3>Decisions locked at/before QGR <span class="ph-status">Gate: 7/29–30</span></h3>
+        <p>All ten decisions ratified so the framework enters Q3 planning as a settled design, not a debate.</p>
+      </div>
+    </div>
+    <div class="phase next">
+      <div class="ph-num">04</div>
+      <div>
+        <h3>Dallas pilot with the app beta <span class="ph-status">Q3</span></h3>
+        <p>Rides the Q3 "Back to School" training theme alongside the mover training-app beta. Measure:
+        do promoted movers season faster and stay longer?</p>
+      </div>
+    </div>
+    <div class="phase next">
+      <div class="ph-num">05</div>
+      <div>
+        <h3>Company-wide rollout <span class="ph-status">Gated</span></h3>
+        <p>Ships when the pilot proves out AND the Rippling + Games automation is live. PTO accrual
+        announcement rides the same Jan 1 comms window.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 8. CHANGELOG ═══ -->
+  <div class="section-head">
+    <div class="eyebrow">Running log</div>
+    <h2>Changelog</h2>
+    <p>One dated entry per working session — what changed, what's next. Newest first. Every session that
+    touches this project appends an entry (the /project-hq rule).</p>
+  </div>
+
+  <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">7/2/2026</div>
+      <div class="log-body">
+        Framework drafted (Anne + Paul) · Cameron walkthrough same day + five positions locked ·
+        6-voice consultant council run + cross-ranked (Harnish-Ross wins Borda, 7 consensus items,
+        Collins tension preserved) · this HQ built and deployed.
+        <span class="next">Next: design workshop (Cameron + Anne + Paul, wk of 7/8) + Matisen backtest + Ben cost model (7/9 Prosper call).</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 9. FOOTER ═══ -->
+  <footer>
+    <b>Mover Promotion HQ</b> · maintained by Albert (Cameron's COS) · last updated 7/2/2026<br>
+    <b>Edited via the repo</b> — Anne/Linda + Paul/Clark: push updates to this page directly; changelog every edit.<br>
+    Internal use — do not share outside Einstein without Cameron's OK.
+  </footer>
+
+</div>
+</body>
+</html>
