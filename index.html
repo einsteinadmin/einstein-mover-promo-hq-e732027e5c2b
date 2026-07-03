@@ -241,6 +241,15 @@
   }
   .viewer-bar button.active { background: var(--navy); border-color: var(--navy); color: #fff; }
   .viewer-bar.nudge { outline: 2px solid var(--orange); }
+  .rx-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(12px);
+    background: var(--navy); color: #fff; padding: 14px 18px; border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25); z-index: 900; display: flex; flex-wrap: wrap; gap: 10px;
+    align-items: center; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+    max-width: min(92vw, 560px); font-size: .9rem; line-height: 1.4; }
+  .rx-toast.show { opacity: 1; pointer-events: auto; transform: translateX(-50%); }
+  .rx-toast button { padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.55);
+    background: transparent; color: #fff; font-weight: 700; cursor: pointer; font-size: .85rem; }
+  .rx-toast button:hover { background: #fff; color: var(--navy); }
 
   .dfilter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
   .dfilter button {
@@ -312,7 +321,7 @@
     details[open] summary::before { content: '▾'; }
     .dcard, .phase, .consensus, .locked, .rule { break-inside: avoid; }
     .feature, .tension { break-inside: avoid; }
-    .viewer-bar, .dfilter, .rx-row, .export-fab, .rx-modal { display: none !important; }
+    .viewer-bar, .dfilter, .rx-row, .export-fab, .rx-modal, .rx-toast { display: none !important; }
     .print-note { display: block; font-size: .8rem; font-style: italic; color: var(--gray); margin-top: 8px; }
   }
 </style>
@@ -938,7 +947,9 @@
         cards reordered Call 1→5, pills rewritten in plain language (no more council-grades-Cameron
         framing), every card now leads "Cameron's call → where it landed" with an expandable "Unpack the
         detail" defining the shorthand (HOF Path B, red-circle freeze, affirmative-keep, cab test, market
-        skew).
+        skew). Reaction-layer UX fix: clicking ✓/⚠/Note with no reviewer picked no longer yanks you to the
+        top of the board — a toast explains and lets you pick Anne/Paul/Cameron in place, then applies the
+        click you already made (Note is now reviewer-gated too — it previously discarded notes silently).
         <span class="next">Next: Anne + Paul pre-read + reaction exports → Albert merges + builds the agenda → workshop.</span>
       </div>
     </div>
@@ -1075,10 +1086,60 @@
     cards.forEach(renderCard);
   });
 
-  function needViewer() {
+  /* No reviewer picked yet: keep the user where they are, explain, and let them
+     pick right in the toast — then apply the click they already made. */
+  var rxToast = null, rxToastTimer = null, pendingReaction = null;
+  function hideToast() {
+    if (rxToast) rxToast.classList.remove('show');
+    pendingReaction = null;
+  }
+  function needViewer(el, kind) {
+    pendingReaction = { el: el, kind: kind };
+    if (!rxToast) {
+      rxToast = document.createElement('div');
+      rxToast.className = 'rx-toast';
+      var html = '<span>First, tell the page <b>who’s reviewing</b> — marks are saved under your name:</span>';
+      PEOPLE.forEach(function (p) { html += '<button type="button" data-person="' + p + '">' + p + '</button>'; });
+      rxToast.innerHTML = html;
+      document.body.appendChild(rxToast);
+      rxToast.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-person]');
+        if (!btn) return;
+        viewer = btn.getAttribute('data-person');
+        try { localStorage.setItem(VIEWER_KEY, viewer); } catch (err) {}
+        renderViewerBar();
+        cards.forEach(renderCard);
+        var p = pendingReaction;
+        pendingReaction = null;
+        rxToast.classList.remove('show');
+        if (p) applyReaction(p.el, p.kind);
+      });
+    }
+    rxToast.classList.add('show');
+    clearTimeout(rxToastTimer);
+    rxToastTimer = setTimeout(hideToast, 9000);
     viewerBar.classList.add('nudge');
-    viewerBar.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(function () { viewerBar.classList.remove('nudge'); }, 1800);
+  }
+
+  function applyReaction(el, kind) {
+    var id = el.getAttribute('data-decision');
+    var row = el.querySelector('.rx-row');
+    if (!row) return;
+    var note = row.querySelector('.rx-note');
+    if (kind === 'note') {
+      note.classList.add('show');
+      note.focus();
+      return;
+    }
+    var entry = getEntry(viewer, id);
+    var cur = entry ? entry.r : '';
+    var next = (cur === kind) ? '' : kind;
+    var noteText = (entry && entry.note) || note.value || '';
+    if (!next && !noteText) setEntry(viewer, id, null);
+    else setEntry(viewer, id, { r: next, note: noteText });
+    if (next === 'talk') note.classList.add('show');
+    renderCard(el);
   }
 
   /* ── reaction rows ── */
@@ -1100,21 +1161,14 @@
       var btn = e.target.closest('.rx-btn');
       if (!btn) return;
       var kind = btn.getAttribute('data-r');
-      var note = row.querySelector('.rx-note');
+      if (!viewer) { needViewer(el, kind); return; }
       if (kind === 'note') {
+        var note = row.querySelector('.rx-note');
         note.classList.toggle('show');
         if (note.classList.contains('show')) note.focus();
         return;
       }
-      if (!viewer) { needViewer(); return; }
-      var entry = getEntry(viewer, id);
-      var cur = entry ? entry.r : '';
-      var next = (cur === kind) ? '' : kind;
-      var noteText = (entry && entry.note) || note.value || '';
-      if (!next && !noteText) setEntry(viewer, id, null);
-      else setEntry(viewer, id, { r: next, note: noteText });
-      if (next === 'talk') note.classList.add('show');
-      renderCard(el);
+      applyReaction(el, kind);
     });
 
     row.querySelector('.rx-note').addEventListener('input', function () {
