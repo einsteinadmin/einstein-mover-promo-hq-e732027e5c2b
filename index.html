@@ -254,6 +254,16 @@
     border-left: 3px solid #C9D6E2; border-radius: 6px; font-size: .83rem; line-height: 1.45; color: var(--navy); }
   .rx-others.show { display: block; }
   .rx-others .o-line + .o-line { margin-top: 6px; }
+  .dcard.locked-final { border-top-color: var(--teal) !important; }
+  .lock-banner { display: none; margin: 0 0 10px; padding: 8px 12px; background: #E6F4F2;
+    border-left: 3px solid var(--teal); border-radius: 6px; font-size: .86rem; color: var(--navy); line-height: 1.45; }
+  .dcard.locked-final .lock-banner { display: block; }
+  .lock-banner .lock-undo { float: right; border: none; background: none; cursor: pointer; color: var(--red); font-weight: 700; font-size: .9rem; }
+  .lock-editor { display: none; margin-top: 8px; }
+  .lock-editor.show { display: block; }
+  .lock-editor textarea { width: 100%; min-height: 60px; border: 1.5px solid var(--teal); border-radius: 8px; padding: 8px 10px; font: inherit; font-size: .85rem; }
+  .lock-editor .lock-save { margin-top: 6px; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--teal); background: var(--teal); color: #fff; font-weight: 700; cursor: pointer; font-size: .85rem; }
+  .rx-btn.on-lock { background: #E6F4F2; border-color: var(--teal); color: var(--teal); }
   .rx-others .talk { color: var(--red); }
   .rx-others .agree { color: var(--teal); }
 
@@ -695,42 +705,49 @@
   </div>
 
   <div class="feature" id="workshop-agenda" style="border-left: 4px solid var(--orange);">
-    <div class="ft-eyebrow">Live workshop run-sheet — Fri 7/3 · 2:00 PM · all three reviews merged below (✓/⚠ chips + notes on every card)</div>
-    <h2>Stamp eight, clarify two, decide six.</h2>
-    <p><b>First 5 minutes — Anne finishes her pass:</b> #01 · #04 · #05 · #06 · #10 · #14 (+ glance the
-    clarified #03) right on this page, marks land live.</p>
-    <p><b>✅ Stamp (all aligned, ~3 min):</b> leave-pause · sticky rungs · fast-track speed · #07 hours basis
-    <i>(confirm Paul's note: floors restated from 40-hr to 35-hr weeks = −12.5% in hours)</i> · #08 streak
-    pause <i>(+ adopt Paul's returner rule? ≤12 months = resume where you left off; longer = restart the
-    rung)</i> · #10 automation gate · #11 post-promotion floor · #03 clarified 7/3 (show the new card,
-    30 seconds — Paul's question and Cameron's were the same question).</p>
-    <p><b>🔍 Quick clarifies (~10 min — mostly wording, not disagreement):</b> #04 fast-track "Outstanding"
-    = consecutive months EACH at the bar, never an average (Paul's worry is already the design) ·
-    #05 the backtest only CHECKS for market skew before weights are set — nothing pre-commits to
-    market-specific scoring (Paul's instinct and the design agree).</p>
+    <div class="ft-eyebrow">Live workshop run-sheet — Fri 7/3 · 2:15 PM · ALL THREE reviews complete &amp; merged (✓/⚠ chips + everyone's notes on every card)</div>
+    <h2>Stamp nine, clarify two, decide six — then lock each one in.</h2>
+    <p><b>How to run it:</b> Anne drives from this board. As each item settles, hit <b>🔒 Lock in</b> on the
+    card and write the final call — the Lock-In Record below the board builds the meeting output as you go.</p>
+    <p><b>✅ Stamp (all three aligned, ~5 min):</b> leave-pause · sticky rungs · fast-track speed ·
+    #03 what-a-promotion-moves · #07 hours basis <i>(confirm Paul's note: floors restated 40→35-hr weeks
+    = −12.5% in hours — keep the published numbers or restate?)</i> · #08 streak pause <i>(+ adopt Paul's
+    returner rule? ≤12 months = resume the rung; longer = restart it)</i> · #10 automation gate ·
+    #11 post-promotion floor · #14 estimate-vs-actuals (now unanimous).</p>
+    <p><b>🔍 Quick clarifies (~5 min):</b> #04 fast-track "Outstanding" = consecutive months EACH at the
+    bar, never an average (Paul's worry is the design already; Anne's ask for real per-level averages =
+    exactly what the Matisen backtest returns) · #05 the backtest only CHECKS for market skew — nothing
+    pre-commits to market-specific scoring (Paul + Anne's instinct and the design agree).</p>
     <p><b>⚠ The real agenda (~40 min):</b></p>
     <ol style="margin: 8px 0 0 20px; display: grid; gap: 8px;">
-      <li><b>#01 Streak engine</b> — Cameron leans D at hours gates + wants the admin mechanics answered
-        (does the system ping managers?); Paul leans B for recency. Name the convergence out loud: both
-        asks are recency-sensitivity — D's trailing-hours eligibility window IS a recency guard. Land the
-        criteria (hours-based · recency-sensitive · mover-legible · admin-automated), let the backtest pick
-        the formula.</li>
-      <li><b>Experience gates (Paul reopens)</b> — training completion required per rung. Bridge on the
-        table: Mike's training-app sprints become the per-rung training gate when the app rolls out —
+      <li><b>#06 CHOICES gate — now the biggest card.</b> Anne challenges the gate itself: lens, not gate —
+        use CHOICES language to name what's missing, let coaching→PIP + leadership-readiness carry the
+        teeth; a pass/fail bar on seven values is a perfection test nobody clears. Paul just wants it
+        explained. Decide: fail-forward gate, Anne's lens-only, or gate-at-lead-seat-only (the council's
+        Collins/Advocate line — judgment returns where leadership starts).</li>
+      <li><b>#01 Streak engine — three positions on the table.</b> Cameron: D at hours gates + "does the
+        system ping managers?"; Paul: B for recency (old greatness shouldn't hide current slippage);
+        Anne: quarterly review cadence + worried about never-ending-review scalability. Convergence to
+        name: D's trailing-hours window IS recency, and Anne's scalability worry is answered by #10
+        (automation, no manual monthly reviews). Land the criteria — hours-based · recency-sensitive ·
+        mover-legible · automated — and let the backtest pick the formula.</li>
+      <li><b>Experience gates (Paul reopens; Anne + Cameron ✓ as-is)</b> — training completion per rung.
+        Bridge: Mike's training-app sprints become the per-rung training gate when the app rolls out —
         ladder v1 doesn't wait on it.</li>
-      <li><b>#06 CHOICES gate</b> — Paul couldn't parse the card; Anne hasn't reviewed it and it's her
-        domain. Read it together, 10 minutes.</li>
-      <li><b>#12 Lead General gates + the HOF title</b> — Anne: sunset the separate HOF job title; Paul:
-        what ARE the extra qualifiers? Define the earned-rung gates and settle the title's future.</li>
-      <li><b>#13 Status delivery</b> — Anne (and the full council) want manager-delivered status; Cameron +
-        Paul lean app-first. Hybrid to test: the app is the always-on source; the BM delivers it in person
-        at status-CHANGE and promotion moments — not a monthly ritual.</li>
-      <li><b>#09 Sequencing</b> — ladder announces first, PTO lands ~Jan 1, designed together. Paul's
-        payout-at-termination = current practice, keep — but flag "required by law" for a counsel check
-        rather than treating it as settled.</li>
+      <li><b>#12 Lead General gates + the HOF title</b> — Anne: sunset the HOF job title, acknowledge the
+        honor elsewhere; Paul: what ARE the extra qualifiers? Define the earned-rung gates, settle the
+        title.</li>
+      <li><b>#13 Status delivery</b> — Anne (and the full council): manager-delivered performance
+        conversations are the development foundation; Cameron + Paul lean app-first. Hybrid to test: app is
+        the always-on source, BM delivers in person at status-CHANGE and promotion moments — no monthly
+        ritual.</li>
+      <li><b>#09 Sequencing</b> — ladder announces first, PTO lands ~Jan 1, designed together (Anne's
+        consistency point supports payout-at-term; flag Paul's "required by law" for a counsel check
+        rather than treating it as settled).</li>
     </ol>
-    <p><b>Close (~5 min):</b> owners + dates — Matisen backtest (rides today's sit-down) · Ben cost model
-    (7/9 Prosper call) · Anne codifies every stamped rule into the SOP · next touchpoint.</p>
+    <p><b>Close (~5 min):</b> read the Lock-In Record aloud · owners + dates — Matisen backtest (rides
+    today's sit-down) · Ben cost model (7/9 Prosper call) · Anne codifies every lock into the SOP ·
+    next touchpoint.</p>
   </div>
 
   <div class="viewer-bar" id="viewer-bar">
@@ -898,6 +915,16 @@
     </div>
   </div>
 
+  <!-- ═══ 5b. LOCK-IN RECORD ═══ -->
+  <div class="section-head" id="lockrecord" style="margin-top: 40px;">
+    <div class="eyebrow">The output — <span id="lock-count">0 locked</span></div>
+    <h2>🔒 Lock-In Record</h2>
+    <p>As the room settles each decision, hit <b>🔒 Lock in</b> on its card and write the final call in one
+    sentence. Everything locked lands here — this list (and the 📋 export, which now includes it) is the
+    record Anne codifies into the SOP. Unlock with ✕ on the card if the room reopens something.</p>
+  </div>
+  <div class="locked-list" id="lock-list"></div>
+
   <!-- ═══ 6. DATA ASKS IN FLIGHT ═══ -->
   <div class="section-head" id="data-asks">
     <div class="eyebrow">Blocking inputs</div>
@@ -985,6 +1012,19 @@
   </div>
 
   <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">7/3/2026 · 2:15 final prep</div>
+      <div class="log-body">
+        Anne's COMPLETE second pass merged (all 17 items — headline: #06 challenged as lens-not-gate;
+        #01 quarterly-cadence alternative + scalability worry; #04 wants real per-level averages;
+        #09 consistency note supporting payout-at-term). Seed v3 stomps stale cached reviews.
+        <b>NEW: Lock-In layer</b> — 🔒 Lock in on every card (final call in one sentence, collective not
+        per-person), Lock-In Record section builds the meeting output live, export now carries a
+        "Locked in" section. Run-sheet rebuilt: stamp 9 · clarify 2 · decide 6, #06 promoted to the top
+        of the debate list. Meeting 2:15.
+        <span class="next">Next: run the workshop → lock all 17 → Anne codifies the record into the SOP.</span>
+      </div>
+    </div>
     <div class="log-entry">
       <div class="log-date">7/3/2026 · pre-meeting</div>
       <div class="log-body">
@@ -1142,18 +1182,46 @@
     },
     "Anne": {
       "lock-1": {r:"agree", note:""}, "lock-2": {r:"agree", note:""}, "lock-3": {r:"agree", note:""}, "lock-4": {r:"agree", note:""},
-      "07": {r:"agree", note:""}, "08": {r:"agree", note:""}, "09": {r:"agree", note:""}, "11": {r:"agree", note:""},
-      "12": {r:"talk", note:"I still think we need to sunset the separate HOF job title."},
-      "13": {r:"talk", note:"Performance conversations with a manager are the foundation of career development — movers are the critical piece in our flywheel, so we should align our resources (manager time) to what we say is important: the performance and development of our people."}
+      "01": {r:"talk", note:"Alternatively, we could set a standard that we review movers\u2019 roles every quarter and look at the last quarter + 6 months? I still am concerned about the never-ending reviews of performance and how scalable it is."},
+      "03": {r:"agree", note:""},
+      "04": {r:"talk", note:"We need the actual averages for our movers in each of the levels to see if our goals are attainable or reasonable."},
+      "05": {r:"talk", note:"Agree with Paul\u2019s assessment."},
+      "06": {r:"talk", note:"CHOICES shouldn\u2019t be a pass/fail gate. We don\u2019t hire for culture fit, so gating advancement on it is inconsistent, and no one lives 100% of all seven values \u2014 a hard line is a bar for perfection nobody clears. It\u2019s also \u201cone thing driving promotion,\u201d the exact move the comp lock says never to make. Use CHOICES as a diagnostic lens instead: the language that names where someone isn\u2019t showing up in their work \u2014 and it covers the whole person, not just the metrics. The mover who maxes every hard number while making teammates want to quit isn\u2019t invisible here; he\u2019s failing Care and Communicate \u2014 and CHOICES is exactly how we name it. So we don\u2019t need a gate to catch that person; the lens does. The teeth come from human judgment and the coaching\u2192PIP track (and leadership-readiness at the lead seat), not an automated binary."},
+      "07": {r:"agree", note:""}, "08": {r:"agree", note:""},
+      "09": {r:"agree", note:"We are paying out accrued PTO for salaried employees so for consistency, we should do the same for hourly employees."},
+      "10": {r:"agree", note:""}, "11": {r:"agree", note:""},
+      "12": {r:"talk", note:"I still think we need to sunset the separate HOF job title but acknowledge the honor elsewhere."},
+      "13": {r:"talk", note:"Performance conversations with a manager are the foundation of career development \u2014 movers are the critical piece in our flywheel, so we should align our resources (manager time) to what we say is important: the performance and development of our people."},
+      "14": {r:"agree", note:""}
     }
   };
   var reactions = loadReactions();
-  Object.keys(SEED).forEach(function (p) {
-    if (!reactions[p]) reactions[p] = {};
-    Object.keys(SEED[p]).forEach(function (id) {
-      if (!reactions[p][id]) reactions[p][id] = SEED[p][id];
+  var SEEDV = '3'; /* bump when the seed content changes — stomps stale cached seeds */
+  if (localStorage.getItem('mphq-seedv') !== SEEDV) {
+    Object.keys(SEED).forEach(function (p) {
+      if (!reactions[p]) reactions[p] = {};
+      Object.keys(SEED[p]).forEach(function (id) { reactions[p][id] = SEED[p][id]; });
     });
-  });
+    saveReactions();
+    try { localStorage.setItem('mphq-seedv', SEEDV); } catch (e) {}
+  } else {
+    Object.keys(SEED).forEach(function (p) {
+      if (!reactions[p]) reactions[p] = {};
+      Object.keys(SEED[p]).forEach(function (id) {
+        if (!reactions[p][id]) reactions[p][id] = SEED[p][id];
+      });
+    });
+  }
+
+  /* ── lock-in layer: collective final decisions, one per card ── */
+  var LOCK_KEY = 'mphq-locks-v1';
+  function loadLocks() {
+    try { return JSON.parse(localStorage.getItem(LOCK_KEY)) || {}; } catch (e) { return {}; }
+  }
+  var locks = loadLocks();
+  function saveLocks() {
+    try { localStorage.setItem(LOCK_KEY, JSON.stringify(locks)); } catch (e) {}
+  }
   var viewer = localStorage.getItem(VIEWER_KEY) || '';
   if (PEOPLE.indexOf(viewer) === -1) viewer = '';
 
@@ -1263,16 +1331,25 @@
         '<button type="button" class="rx-btn" data-r="agree">✓ Agree</button>' +
         '<button type="button" class="rx-btn" data-r="talk">⚠ Let’s talk</button>' +
         '<button type="button" class="rx-btn" data-r="note">✎ Note</button>' +
+        '<button type="button" class="rx-btn lock-btn" data-r="lock">🔒 Lock in</button>' +
         '<span class="rx-chips"></span>' +
       '</div>' +
       '<textarea class="rx-note" placeholder="Note for the workshop…"></textarea>' +
-      '<div class="rx-others"></div>';
+      '<div class="rx-others"></div>' +
+      '<div class="lock-editor"><textarea class="lock-text" placeholder="Final decision, as agreed in the room…"></textarea><button type="button" class="lock-save">Lock it</button></div>';
     el.appendChild(row);
 
     row.addEventListener('click', function (e) {
       var btn = e.target.closest('.rx-btn');
       if (!btn) return;
       var kind = btn.getAttribute('data-r');
+      if (kind === 'lock') {
+        var ed = row.querySelector('.lock-editor');
+        ed.querySelector('.lock-text').value = (locks[id] && locks[id].text) || '';
+        ed.classList.toggle('show');
+        if (ed.classList.contains('show')) ed.querySelector('.lock-text').focus();
+        return;
+      }
       if (!viewer) { needViewer(el, kind); return; }
       if (kind === 'note') {
         var note = row.querySelector('.rx-note');
@@ -1291,6 +1368,63 @@
       else setEntry(viewer, id, entry);
       renderChips(el);
     });
+
+    row.querySelector('.lock-save').addEventListener('click', function () {
+      var t = row.querySelector('.lock-text').value.trim();
+      if (!t) return;
+      var d = new Date();
+      locks[id] = { text: t, at: (d.getMonth() + 1) + '/' + d.getDate() };
+      saveLocks();
+      row.querySelector('.lock-editor').classList.remove('show');
+      renderLock(el);
+      renderLockRecord();
+    });
+  }
+
+  function renderLock(el) {
+    var id = el.getAttribute('data-decision');
+    var L = locks[id];
+    var banner = el.querySelector('.lock-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.className = 'lock-banner';
+      el.insertBefore(banner, el.firstChild);
+    }
+    el.classList.toggle('locked-final', !!L);
+    var btn = el.querySelector('.lock-btn');
+    if (btn) {
+      btn.classList.toggle('on-lock', !!L);
+      btn.textContent = L ? '🔒 Locked — edit' : '🔒 Lock in';
+    }
+    if (L) {
+      banner.innerHTML = '<button type="button" class="lock-undo" title="Unlock">✕</button><b>🔒 LOCKED ' +
+        escHtml(L.at) + '</b> — ' + escHtml(L.text);
+      banner.querySelector('.lock-undo').addEventListener('click', function () {
+        delete locks[id];
+        saveLocks();
+        renderLock(el);
+        renderLockRecord();
+      });
+    } else {
+      banner.innerHTML = '';
+    }
+  }
+
+  function renderLockRecord() {
+    var list = document.getElementById('lock-list');
+    var count = document.getElementById('lock-count');
+    if (!list) return;
+    var items = [];
+    cards.forEach(function (el) {
+      var id = el.getAttribute('data-decision');
+      var L = locks[id];
+      if (!L) return;
+      items.push('<div class="locked"><span class="lock-ic">🔒</span><span><b>' + escHtml(cardTitle(el)) +
+        '</b> — ' + escHtml(L.text) + ' <i style="color:#7A8A99;">(locked ' + escHtml(L.at) + ')</i></span></div>');
+    });
+    list.innerHTML = items.length ? items.join('') :
+      '<div class="locked" style="opacity:.55;"><span class="lock-ic">·</span><span>Nothing locked yet — decisions land here as the room locks them.</span></div>';
+    if (count) count.textContent = items.length + ' of ' + cards.length + ' locked';
   }
 
   function renderChips(el) {
@@ -1342,6 +1476,8 @@
   cards.forEach(buildRow);
   renderViewerBar();
   cards.forEach(renderCard);
+  cards.forEach(renderLock);
+  renderLockRecord();
 
   /* ── filter toggle ── */
   var dfilter = document.getElementById('dfilter');
@@ -1388,6 +1524,13 @@
     lines = lines.concat(agree.length ? agree : ['- (none)'], ['']);
     lines.push('## — Not yet reviewed');
     lines = lines.concat(unreviewed.length ? unreviewed : ['- (none)'], ['']);
+    var lockedLines = [];
+    cards.forEach(function (el) {
+      var L = locks[el.getAttribute('data-decision')];
+      if (L) lockedLines.push('- **' + cardTitle(el) + '** → ' + L.text + ' _(locked ' + L.at + ')_');
+    });
+    lines.push('## 🔒 Locked in');
+    lines = lines.concat(lockedLines.length ? lockedLines : ['- (none yet)'], ['']);
     lines.push('_Reactions live per-device; each reviewer exports their own. Export = the sync mechanism._');
     return lines.join('\n');
   }
