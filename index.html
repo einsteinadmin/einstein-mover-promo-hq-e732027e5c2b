@@ -781,14 +781,24 @@
   <div class="card-grid" id="decisions-grid">
     <div class="dcard" id="decision-01" data-decision="01">
       <div class="d-num">01</div>
-      <h3>Streak rule</h3>
-      <p><b>Option A (full reset) is ELIMINATED — Cameron, 7/2 PM.</b> B ("3 of last 4 months, none below a floor"),
-      C (pause-not-reset), and D (rolling average + floor) remain; Cameron leans D as fairest, with a new HARD
-      REQUIREMENT: the average must be <b>hours-weighted</b> or computed over a rolling <b>hours</b> window
-      (e.g. last ~500 hours) — a 40-hour month cannot weigh the same as a 160-hour month; calendar-month
-      averaging is invalid. If C wins it needs a completion window. <b>Pass-2 verdict (7/2 PM): engine
-      accepted, but ships ONLY behind the legibility gate</b> — self-serve mover gauge in the app, fallback
-      3-of-4+floor (<a href="#pass2-call-1">see Pass 2, Call 1</a>).</p>
+      <h3>Streak rule — what pattern earns the promotion?</h3>
+      <p><b>The question:</b> "sustained performance" needs a formula. Option A — one bad month wipes the
+      whole streak — is dead (Cameron, 7/2). Three candidates remain:
+      <b>B</b> = 3 of the last 4 months at the bar, none below a floor (simplest, very recency-focused) ·
+      <b>C</b> = the streak pauses on a miss instead of resetting (gentlest) ·
+      <b>D</b> = a rolling average over your recent hours worked, with a floor (fairest math — Cameron's lean).</p>
+      <p><b>Where it stands:</b> whichever wins must be <b>hours-based</b> (a 40-hour month can't count the
+      same as a 160-hour month), <b>recency-sensitive</b> (old greatness can't hide current slippage),
+      <b>automated</b> (the system pings the manager — nobody babysits spreadsheets), and <b>simple enough
+      that a mover reads his own status in 30 seconds in the app</b>. The backtest picks the winning formula
+      off real data.</p>
+      <details><summary>Unpack the detail</summary>
+        <p>D's average would run over roughly the last ~500 hours; a Weaver refinement lets eligibility
+        update on the most recent ~250 hours so a genuinely improved mover is rewarded quickly. If C wins,
+        it needs a completion window so a paused streak can't stay frozen forever. The council accepted the
+        D engine but only behind the legibility gate — a self-serve gauge in the app (score, bar, hours
+        building); if the gauge can't ship, the fallback is B (<a href="#pass2-call-1">see Pass 2, Call 1</a>).</p>
+      </details>
       <p><b>Cameron, 7/3 (⚠ workshop):</b> "A is easiest administratively but even that has hours
       discrepancies. Promotion decisions need to be made at hours gates (and thus D) — but how do we handle
       that administratively? Every time someone's rolling average holds above the bar for a sustained
@@ -809,38 +819,58 @@
     </div>
     <div class="dcard" id="decision-04" data-decision="04">
       <div class="d-num">04</div>
-      <h3>Fast-track calibration</h3>
-      <p>Replace 4 perfect-10 months with 4 months at "Outstanding" — set the actual threshold off the
-      backtest's attainability read so the path is real, not a poster. <b>Speed — Cameron's call (7/2):</b>
-      LIT→Junior→Regular in ~9–10 months is acceptable and desirable for exceptional performers.</p>
+      <h3>Fast-track calibration — how good skips the wait?</h3>
+      <p><b>The question:</b> the draft required 4 consecutive perfect-10 months — once damages count,
+      that's a mirage nobody hits. The replacement: 4 consecutive months EACH at an "Outstanding" bar.
+      Never an average — one below-bar month restarts the fast-track clock, so current poor performance can
+      never hide inside old good months.</p>
+      <p><b>Where it stands:</b> the actual bar number comes off the backtest so the path is real, not a
+      poster. Speed itself is settled (Cameron, 7/2): LIT→Junior→Regular in ~9–10 months is desirable for
+      exceptional performers. On the table from Paul: different bars per level (~8 at lower rungs, 9 higher,
+      10 for Lead General).</p>
       <div class="owes"><b>Backtest + Anne</b></div>
     </div>
     <div class="dcard decided" id="decision-05" data-decision="05">
       <div class="d-num">05</div>
       <span class="locked-badge">✅ Philosophy set 7/2 PM</span>
-      <h3>Performance Matrix weights</h3>
-      <p><b>Cameron's philosophy (walkthrough piece 5):</b> attendance + damages stay the core; driver score
-      is definitely IN; contract efficiency joins LIGHT. On-site evals are <b>OUT until the training app evens
-      coverage</b> across branches (revisit flag set). Backtest checks market skew both ways: Dallas
-      damage-skew AND attendance-skew by market. Exact numbers come off the backtest.</p>
+      <h3>Performance Matrix weights — what counts, and how much</h3>
+      <p><b>The question:</b> which metrics feed the promotion score, at what weights.</p>
+      <p><b>Where it stands (philosophy set 7/2):</b> attendance + damages are the core · driver score is
+      in · contract efficiency counts lightly · on-site evals stay OUT until the training app gives every
+      branch equal eval coverage (revisit flag set). Exact numbers wait for the backtest — which FIRST
+      checks whether any market is unfairly skewed (does Dallas get charged more damages purely because of
+      its market? does any market skew attendance?) so no mover is punished for his zip code. Nothing
+      pre-commits to market-specific scoring — the check exists so weights are set with eyes open.</p>
       <div class="owes"><b>Backtest (Matisen) → workshop sets the numbers</b></div>
     </div>
     <div class="dcard decided" id="decision-06" data-decision="06">
       <div class="d-num">06</div>
       <span class="locked-badge">✅ Design resolved 7/2 late — pending workshop ratification</span>
       <h3>CHOICES gate — FINAL FORM ("fail-forward")</h3>
-      <p><b>Weaver-confirmed final design — supersedes BOTH the evidentiary version and the
-      universal-logging composite.</b> NO prior-evidence / logged-redirect requirement — deleted as
-      unmeasurable ("any design depending on 10 branch managers keeping consistent ambient documentation is dead on
-      arrival"; logging rates have no denominator — Cameron's catch). A values block requires, <b>AT BLOCK
-      TIME</b>: (a) a <b>named-virtue conversation</b> ("you're hungry and smart — here's where humble is
-      missing"); (b) a <b>one-page block form</b> — virtue, observed behavior, 90-day improvement-window
-      dates, check-in schedule ("if a manager won't spend ten minutes, the block doesn't stand"); (c) a
-      <b>clearable path</b> — logged coaching during the window, gate clears at the next review. Oversight:
-      regional reviews <b>100% of blocks</b> (not a sample — volume is low) + per-branch praise-board
-      asymmetry as a smoke-detector dashboard flag ONLY (odd praise-to-block ratios trigger a conversation,
-      never an automated consequence). Integrity dashboard scope reverts to <b>damage-assignment rates +
-      attendance-coding</b>, per branch, baselined pre-launch.</p>
+      <p><b>In plain terms:</b> nobody is ever scored on the seven values, and nobody needs values paperwork
+      to GET promoted. The gate exists in exactly one scenario — a promotion is about to happen and a
+      manager says "not this person, not yet." <b>That act</b> is what requires the work:
+      (1) a face-to-face conversation in values language ("you're hungry and smart — here's where humble is
+      missing"), (2) a one-page form naming the virtue and the observed behavior, and (3) a 90-day path to
+      clear it, with check-ins. Regionals read every single block. If no manager objects, CHOICES never
+      touches the promotion at all.</p>
+      <p><b>Cameron's take (7/3):</b> this is much closer to Anne's "lens, not gate" than the old wording
+      made it sound. The block IS human judgment using CHOICES language — the form just guarantees the
+      mover due process (told to his face, in writing, with a way out) instead of an informal, silent no.</p>
+      <p><b>❓ The real question for the room:</b> when a manager's judgment says "no" to a promotion, does
+      that no get due process — the conversation, the page, the 90-day path — or does it stay informal?
+      That's the entire distance between Anne's lens and this gate.</p>
+      <details><summary>Unpack the design history</summary>
+        <p>This is the Weaver-confirmed final form and it supersedes two earlier designs: the "evidentiary"
+        version (managers had to keep documented behavioral evidence to justify any block — died because
+        depending on 10 branch managers keeping consistent ambient documentation is dead on arrival) and
+        the "universal-logging composite" (log every redirect company-wide — died on Cameron's catch that
+        logging rates have no denominator, so you can't audit what should have been logged). Oversight:
+        regionals review 100% of blocks (volume is low), and per-branch praise-to-block asymmetry is a
+        smoke-detector dashboard flag ONLY — odd ratios trigger a conversation, never an automated
+        consequence. The integrity dashboard proper watches damage-assignment rates + attendance-coding per
+        branch, baselined before launch.</p>
+      </details>
       <div class="owes done"><b>Anne + Paul workshop ratifies</b></div>
     </div>
     <div class="dcard decided" id="decision-07" data-decision="07">
@@ -860,60 +890,78 @@
     </div>
     <div class="dcard" id="decision-09" data-decision="09">
       <div class="d-num">09</div>
-      <h3>PTO integration</h3>
-      <p>Accrual decided directionally (Jan 1 start, Ben modeling, payout-at-term leaning yes, Paul wants
-      ladder-gated eligibility).</p>
-      <p><b>Cameron, 7/3 (⚠ workshop — evolves the earlier one-announcement lean):</b> the promotion ladder
-      should roll out EARLIER than PTO (PTO lands ~Jan 1) — so two separate, parallel announcements,
-      designed together where possible.</p>
+      <h3>PTO integration — one design, two announcements</h3>
+      <p><b>The question:</b> mover PTO accrual (starting ~Jan 1, Ben modeling the cost) hangs off the same
+      rungs as this ladder — how do the two roll out without colliding?</p>
+      <p><b>Where it stands:</b> accrual = yes · payout at unused-PTO termination = current company practice,
+      leaning keep (note: "required by law" should get a counsel check, not be assumed) · Paul wants
+      eligibility tied to ladder rungs. <b>Cameron, 7/3:</b> the ladder announces FIRST; PTO lands ~Jan 1 —
+      two separate, parallel announcements, designed together where possible.</p>
       <div class="owes"><b>Anne + Paul + Ben</b></div>
     </div>
     <div class="dcard" id="decision-10" data-decision="10">
       <div class="d-num">10</div>
-      <h3>Automation gate</h3>
-      <p>The Rippling + Games data pull must be automated before any manual monthly BM review ships —
-      manual reviews get pencil-whipped by month three.</p>
+      <h3>Automation gate — no robots, no launch</h3>
+      <p><b>The rule:</b> the monthly review only exists if the Rippling + Games data pull is AUTOMATED —
+      the system computes scores and pings managers when someone crosses a bar. If humans have to compile
+      spreadsheets every month, it gets pencil-whipped by month three. (This is also the direct answer to
+      Anne's "never-ending reviews" scalability worry on #01 — nobody reviews anyone until the system
+      raises its hand.)</p>
       <div class="owes"><b>Matisen</b></div>
     </div>
     <div class="dcard decided" id="decision-11" data-decision="11">
       <div class="d-num">11</div>
       <span class="locked-badge">✅ Cameron's call 7/2 · confirm at workshop</span>
-      <h3>Post-promotion floor</h3>
-      <p>What happens on sustained poor performance AFTER a promotion? <b>DIRECTION — Cameron's call (7/2):</b> rungs are
-      sticky — route to the coaching→PIP track (100-point system machinery), never a pay demotion.
-      Remaining design: wire the thresholds to Anne's 100-point system and define where the PIP trigger sits.</p>
+      <h3>Post-promotion floor — what happens when someone slips?</h3>
+      <p><b>The question:</b> a mover earns a rung, then performance drops. Now what?
+      <b>Cameron's call (7/2):</b> pay never goes backward — sustained poor performance routes to coaching
+      and the PIP track (the 100-point system machinery), never a pay demotion. "Pay corrections are not
+      performance ultimatums." Left to design: exactly where the PIP trigger sits, wired to Anne's
+      100-point system.</p>
       <div class="owes done"><b>Anne + Cameron</b></div>
     </div>
     <div class="dcard" id="decision-12" data-decision="12">
       <div class="d-num">12</div>
-      <h3>Lead General gates</h3>
-      <p>Unwritten today — but it IS an earned rung, the last one on the ladder, and its gates need defining.
-      <b>Hall of Fame stays a SEPARATE voted/appointed honor</b> (existing HOF revamp project, Sept) — never
-      conflate the two.</p>
+      <h3>Lead General gates + the HOF title</h3>
+      <p><b>The question (two parts):</b> (1) Lead General is the last earned rung on the ladder and its
+      gates are unwritten — what earns it? (2) What happens to the Hall of Fame TITLE — current position is
+      HOF stays a separate voted/appointed honor (revamp project, Sept); Anne pushes further: sunset the
+      separate job title entirely and acknowledge the honor elsewhere.</p>
       <div class="owes"><b>Gates TBD — Anne + Cameron</b></div>
     </div>
     <div class="dcard" style="border-top-color: var(--gold);" id="decision-13" data-decision="13">
       <div class="d-num">13</div>
       <span class="locked-badge" style="background:var(--orange-50); color:var(--orange-dark); border-color:var(--orange);">⚠ Open — Cameron's lean, contra council</span>
-      <h3>Monthly status delivery to the mover</h3>
-      <p><b>CAMERON'S LEAN</b> — app-first self-serve readout (score/bar/hours gauge; possible Rippling
-      push); he doubts mandatory monthly BM conversations are schedulable at 10 branches ("we have to track
-      that ask"). <b>⚠ Runs CONTRA council consensus #6</b> (all four Pass-2 voices wanted human delivery of
-      status changes — Horstman: "the conversation, not the matrix, is the management"). Workshop RATIFIES
-      or pushes back. The self-serve gauge is the same build as Call 1's legibility gate — one deliverable
-      in the Mover Super App performance spine (module 2 of Mike's chassis roadmap).</p>
+      <h3>Status delivery — app, or manager?</h3>
+      <p><b>The question:</b> how does a mover learn where he stands each month — from a live gauge in the
+      app, or from his manager's mouth?</p>
+      <p><b>Where it stands:</b> Cameron + Paul lean app-first self-serve (always-on gauge; Cameron doubts
+      a mandatory monthly conversation is actually schedulable across 10 branches). Anne — and all four
+      council voices — hold that the manager conversation IS the development ("the conversation, not the
+      matrix, is the management"). <b>Hybrid on the table:</b> the app is the always-on source of truth;
+      the BM delivers it in person at status CHANGES and promotion moments — a real conversation when
+      something happened, no empty monthly ritual.</p>
+      <details><summary>Unpack the detail</summary>
+        <p>The self-serve gauge is the same build as #01's legibility gate — one deliverable in the Mover
+        Super App performance spine (module 2 of Mike's chassis roadmap), with a possible Rippling push
+        notification layer.</p>
+      </details>
       <div class="owes"><b>Workshop ratifies or pushes back · gauge build ask — Mike/Matisen</b></div>
     </div>
     <div class="dcard" id="decision-14" data-decision="14">
       <div class="d-num">14</div>
-      <h3>Estimate-vs-actuals as a lead-track matrix input (Cameron's candidate, 7/2 late)</h3>
-      <p>Catches the <b>slow-but-clean mover</b> — no damages, on-time, good driver score, never hustles,
-      consistently over estimate — invisible to every current input. It's the most <b>lead-controllable
-      OUTCOME metric</b> (the lead sets pace + runs the job → attribution works at lead level), and it
-      answers the "avoid-badness ladder" critique with a positive output measure. Data plumbing = the
-      Estimate Accuracy project's field-app timestamps + post-move variance reports (in flight). Caveats:
-      normalize by move type + de-mix partial scopes — joins the Matisen backtest scope.
-      <b>Status: CANDIDATE for the pilot phase.</b></p>
+      <h3>Estimate-vs-actuals — the one metric that measures hustle</h3>
+      <p><b>The question:</b> every input on the ladder is avoid-badness (don't damage, don't be late,
+      don't drive rough). This is the positive-output candidate: did the crew beat the estimate?</p>
+      <p><b>Why it matters:</b> it catches the slow-but-clean mover — no damages, on time, decent driver
+      score, never hustles, always runs over estimate — invisible to every other metric. And it's the most
+      lead-controllable outcome we have: the lead sets the pace and runs the job, so the attribution
+      actually works at lead level. <b>Status: candidate for the pilot phase (all three ✓).</b></p>
+      <details><summary>Unpack the detail</summary>
+        <p>Data plumbing = the Estimate Accuracy project's field-app timestamps + post-move variance
+        reports (in flight). Caveats: normalize by move type and de-mix partial scopes so nobody gets
+        punished for a hard job — both join the Matisen backtest scope.</p>
+      </details>
       <div class="owes"><b>Cameron + Matisen + Anne</b></div>
     </div>
   </div>
@@ -1018,6 +1066,16 @@
   </div>
 
   <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">7/3/2026 · in-meeting clarity pass</div>
+      <div class="log-body">
+        Every decision card rewritten for a cold reader — leads with "The question / Where it stands" in
+        plain English, dense design history folded into "Unpack" expanders. <b>#06 CHOICES rebuilt around
+        the plain explainer</b> (nobody is scored on values; the gate = due process for a manager's "no"),
+        Cameron's take (it's closer to Anne's lens than the old wording sounded), and the real question for
+        the room: does a manager's no get due process, or stay informal?
+      </div>
+    </div>
     <div class="log-entry">
       <div class="log-date">7/3/2026 · 2:15+ (Paul's pulse notes)</div>
       <div class="log-body">
