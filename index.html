@@ -44,7 +44,7 @@
     letter-spacing: 1px; color: var(--navy); margin-bottom: 12px;
   }
   .lede { font-size: 1.05rem; color: var(--gray); max-width: 780px; }
-  .meta { font-size: .8rem; color: #888; margin-top: 14px; }
+  .meta { font-size: .8rem; color: #6B6B6B; margin-top: 14px; }
   .owner-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
   .owner-chip {
     background: #fff; border: 1px solid var(--line); border-radius: 20px;
@@ -86,7 +86,7 @@
   tr:last-child td { border-bottom: none; }
   td.rung { font-weight: 700; color: var(--navy); white-space: nowrap; }
   .tag {
-    display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: 1px;
+    display: inline-block; font-size: .7rem; font-weight: 800; letter-spacing: 1px;
     text-transform: uppercase; padding: 2px 8px; border-radius: 12px; margin-left: 6px; vertical-align: 1px;
   }
   .tag.new { background: var(--orange-50); color: var(--orange-dark); border: 1px solid var(--orange); }
@@ -134,12 +134,13 @@
     cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--navy);
     font-size: .92rem; list-style: none; display: flex; align-items: center; gap: 10px;
   }
+  details summary::-webkit-details-marker { display: none; }
   details summary::before { content: '▸'; color: var(--orange-dark); transition: transform .15s; }
   details[open] summary::before { transform: rotate(90deg); }
   details summary:hover { background: var(--light); }
   details .resp { padding: 4px 20px 18px; font-size: .87rem; color: var(--ink); line-height: 1.65; }
   .voice-tag {
-    font-size: .62rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    font-size: .7rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
     background: var(--navy); color: #fff; padding: 2px 8px; border-radius: 12px;
   }
   .voice-tag.house { background: var(--orange-dark); }
@@ -162,7 +163,7 @@
   .owes b { color: var(--orange-dark); }
   .dcard.decided { border-top-color: var(--teal); }
   .locked-badge {
-    display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: 1px;
+    display: inline-block; font-size: .7rem; font-weight: 800; letter-spacing: 1px;
     text-transform: uppercase; padding: 2px 8px; border-radius: 12px; margin-bottom: 8px;
     background: #E6F4F2; color: var(--teal); border: 1px solid var(--teal); align-self: flex-start;
   }
@@ -209,10 +210,90 @@
   .log-body .next { color: var(--gray); font-size: .82rem; display: block; margin-top: 3px; }
 
   footer {
-    margin-top: 80px; font-size: .78rem; color: #888;
+    margin-top: 80px; font-size: .78rem; color: #6B6B6B;
     border-top: 1px solid var(--line); padding-top: 18px; line-height: 1.7;
   }
   footer b { color: var(--navy); }
+
+  /* ─── Evolved chips (framework section — neutral, not graded) ─── */
+  .tag.evolved { background: #EEF3F7; color: var(--navy); border: 1px solid #C9D6E2; text-transform: none; letter-spacing: .3px; }
+  .rule.evolved { border-left: 4px solid #C9D6E2; }
+
+  .gloss { font-style: italic; color: var(--gray); font-size: .82rem; }
+  .print-note { display: none; }
+
+  /* ─── Reaction layer ─── */
+  .viewer-bar {
+    position: sticky; top: 0; z-index: 80;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 14px; margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(27,58,92,.08);
+  }
+  .viewer-bar .vb-label { font-size: .8rem; font-weight: 700; color: var(--navy); }
+  .viewer-bar button {
+    min-height: 44px; min-width: 44px; padding: 8px 18px; border-radius: 22px;
+    border: 1px solid var(--line); background: var(--light); color: var(--ink);
+    font: 600 .88rem 'Roboto', sans-serif; cursor: pointer;
+  }
+  .viewer-bar button.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .viewer-bar.nudge { outline: 2px solid var(--orange); }
+
+  .dfilter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .dfilter button {
+    min-height: 44px; padding: 8px 16px; border-radius: 22px;
+    border: 1px solid var(--line); background: #fff; color: var(--gray);
+    font: 600 .84rem 'Roboto', sans-serif; cursor: pointer;
+  }
+  .dfilter button.active { background: var(--orange-50); border-color: var(--orange); color: var(--orange-dark); }
+
+  .locked { flex-wrap: wrap; }
+  .rx-row { flex-basis: 100%; width: 100%; margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
+  .rx-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .rx-btn {
+    min-height: 44px; padding: 8px 14px; border-radius: 22px;
+    border: 1px solid var(--line); background: #fff; color: var(--gray);
+    font: 600 .82rem 'Roboto', sans-serif; cursor: pointer;
+  }
+  .rx-btn.on-agree { background: #E6F4F2; border-color: var(--teal); color: var(--teal); }
+  .rx-btn.on-talk { background: var(--orange-50); border-color: var(--orange); color: var(--orange-dark); }
+  .rx-chips { font-size: .74rem; font-weight: 700; color: var(--gray); margin-left: auto; }
+  .rx-chips .agree { color: var(--teal); }
+  .rx-chips .talk { color: var(--orange-dark); }
+  .rx-note {
+    display: none; width: 100%; margin-top: 8px; min-height: 60px;
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+    font: 400 .84rem 'Roboto', sans-serif; color: var(--ink); resize: vertical;
+  }
+  .rx-note.show { display: block; }
+
+  .export-fab {
+    position: fixed; bottom: 18px; right: 18px; z-index: 90;
+    min-height: 48px; padding: 12px 20px; border-radius: 26px;
+    border: none; background: var(--navy); color: #fff;
+    font: 700 .9rem 'Roboto', sans-serif; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(27,58,92,.3);
+  }
+  .rx-modal {
+    display: none; position: fixed; inset: 0; z-index: 100;
+    background: rgba(27,52,61,.55); padding: 24px;
+  }
+  .rx-modal.show { display: flex; align-items: center; justify-content: center; }
+  .rx-modal .rm-box {
+    background: #fff; border-radius: 12px; max-width: 720px; width: 100%;
+    max-height: 80vh; display: flex; flex-direction: column; padding: 20px;
+  }
+  .rx-modal h3 { font-size: 1rem; color: var(--navy); margin-bottom: 4px; }
+  .rx-modal .rm-status { font-size: .8rem; color: var(--teal); font-weight: 700; margin-bottom: 10px; min-height: 1em; }
+  .rx-modal textarea {
+    flex: 1; min-height: 300px; border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 12px; font: 400 .8rem 'SF Mono', Menlo, monospace; color: var(--ink); resize: none;
+  }
+  .rx-modal .rm-close {
+    margin-top: 12px; align-self: flex-end; min-height: 44px; padding: 10px 18px;
+    border-radius: 22px; border: 1px solid var(--line); background: var(--light);
+    font: 600 .86rem 'Roboto', sans-serif; cursor: pointer;
+  }
 
   @media (max-width: 640px) {
     .wrap { padding: 36px 18px 70px; }
@@ -228,6 +309,8 @@
     details[open] summary::before { content: '▾'; }
     .dcard, .phase, .consensus, .locked, .rule { break-inside: avoid; }
     .feature, .tension { break-inside: avoid; }
+    .viewer-bar, .dfilter, .rx-row, .export-fab, .rx-modal { display: none !important; }
+    .print-note { display: block; font-size: .8rem; font-style: italic; color: var(--gray); margin-top: 8px; }
   }
 </style>
 </head>
@@ -268,11 +351,11 @@
   </div>
 
   <!-- ═══ 2. THE FRAMEWORK ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="framework">
     <div class="eyebrow">Draft v1 · Anne + Paul · 7/2/2026</div>
     <h2>The Framework</h2>
-    <p>The ladder as drafted. Two elements are contested by the council and flagged below — see the
-    Open Decisions board before treating any bar or rule as final.</p>
+    <p>The ladder as drafted. Two elements evolved during review — see the decisions board before
+    treating any bar or rule as final.</p>
   </div>
 
   <div class="feature" style="margin-top:0; border-left-color: var(--teal);">
@@ -299,16 +382,16 @@
   </div>
 
   <div class="rules-grid">
-    <div class="rule contested"><b>Sustained = 3 consecutive months at bar</b>
-      Draft says one month below the bar = full streak reset. <span class="tag contested">Contested</span> — the council
-      killed the full reset and Cameron eliminated it 7/2 PM; see Decision #1.</div>
+    <div class="rule evolved"><b>Sustained = 3 consecutive months at bar</b>
+      Draft says one month below the bar = full streak reset. <span class="tag evolved">→ evolved at Decision #01</span> —
+      the reset rule evolved during review; the decisions board carries the detail.</div>
     <div class="rule"><b>Monthly review, effective the 1st</b>
       Promotion status reviewed every month; changes take effect the first of the following month.</div>
     <div class="rule"><b>Eligibility ≠ entitlement</b>
       Clearing the bar makes a mover eligible; it does not auto-confer the rung on its own.</div>
-    <div class="rule contested"><b>Fast-track = 4 consecutive perfect-10 months</b>
-      With a 560-hour floor. <span class="tag contested">Contested</span> — council says perfection is a
-      mirage, not a path; see Decision #4.</div>
+    <div class="rule evolved"><b>Fast-track = 4 consecutive perfect-10 months</b>
+      With a 560-hour floor. <span class="tag evolved">→ evolved at Decision #04</span> —
+      the threshold evolved during review; the decisions board carries the detail.</div>
     <div class="rule"><b>Part-timers: same bars, slower accrual</b>
       Identical performance standards; the hours minimums simply take longer to reach.</div>
     <div class="rule"><b>CHOICES = separate pass/fail gate</b>
@@ -340,7 +423,7 @@
   </div>
 
   <!-- ═══ 4. COUNCIL VERDICT ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="council">
     <div class="eyebrow">6-voice /consultants deep run · cross-ranked · 7/2/2026</div>
     <h2>Council Verdict</h2>
     <p>Six voices reviewed the draft blind and cross-ranked each other's responses (Borda count —
@@ -385,14 +468,17 @@
       decides which. At 81% turnover the enemy is discouragement, not laxity.</div></div>
     <div class="consensus"><div class="c-num">3</div><div><b>No new bonus mechanic mid-year.</b>
       The ladder moves BASE pay; variable stays the locked $2–3/hr hourly structure. Senior Lead gets priced
-      by Ben before it exists — the May comp lock doesn't reopen through a side door.</div></div>
+      by Ben before it exists — the May comp lock doesn't reopen through a side door.
+      <span class="gloss">(→ superseded by the 7/2 correction: Sr. Lead exists; pay-column reconcile remains)</span></div></div>
     <div class="consensus"><div class="c-num">4</div><div><b>Fast-track = 4 months "Outstanding," not perfection.</b>
       Four consecutive perfect 10s once damages count isn't an expedited path — it's a mirage.</div></div>
     <div class="consensus"><div class="c-num">5</div><div><b>CHOICES gate becomes EVIDENTIARY.</b>
       No fail without a documented redirect trail (Einstein Coaching Protocol), 2–3 written behavioral
-      observations, a second reader, and a mandatory named-virtue conversation on any block. Never a silent veto.</div></div>
+      observations, a second reader, and a mandatory named-virtue conversation on any block. Never a silent veto.
+      <span class="gloss">(→ superseded by Decision #06 final form: fail-forward, Pass 3)</span></div></div>
     <div class="consensus"><div class="c-num">6</div><div><b>Transparency: every mover sees score, bar, and clock in the app monthly.</b>
-      No mover learns a status change from a spreadsheet — status changes are delivered by a human before they take effect.</div></div>
+      No mover learns a status change from a spreadsheet — status changes are delivered by a human before they take effect.
+      <span class="gloss">(→ challenged by Cameron at Decision #13 — workshop ratifies)</span></div></div>
     <div class="consensus"><div class="c-num">7</div><div><b>Dallas pilot alongside the training-app beta before company-wide.</b>
       Fire bullets before the cannonball: measure whether promoted movers season faster and stay longer, then roll out.</div></div>
   </div>
@@ -410,6 +496,7 @@
     <div class="eyebrow">Full responses</div>
     <h2 style="font-size:1.6rem;">Read the council in full</h2>
     <p>Each voice's complete response, verbatim from the 7/2 run.</p>
+    <p class="print-note">Full verbatim responses available online (collapsed sections don't print).</p>
   </div>
 
   <details>
@@ -443,7 +530,7 @@
   </details>
 
   <!-- ═══ 4b. PASS 2 — TARGETED STRESS-TEST ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="pass2">
     <div class="eyebrow">Targeted 4-voice stress-test · 7/2 PM</div>
     <h2>Pass 2 — Cameron's Calls, Stress-Tested (7/2 PM)</h2>
     <p>Four voices — Weaver, Harnish-Ross, Horstman, and the Einstein Advocate (house voice) — were pointed
@@ -452,7 +539,7 @@
   </div>
 
   <div class="card-grid">
-    <div class="dcard decided">
+    <div class="dcard decided" id="pass2-call-1">
       <span class="locked-badge">✅ Unanimous pass</span>
       <h3>Call 3 — Referee stack (data → BM → regional)</h3>
       <p>All four voices pass it. Three refinements adopted: <b>baseline assignment rates BEFORE launch</b>;
@@ -462,17 +549,17 @@
       removed 7/2 late — no denominator; see Decision #6). Owner TBD.</p>
       <div class="owes done"><b>Confirmed — name owner + threshold at the workshop</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="pass2-call-2">
       <span class="locked-badge">✅ Pass</span>
       <h3>Call 4 — Sticky rungs</h3>
-      <p>Advocate: <b>"HOF Path B applied forward — this IS the philosophy."</b> The fiscal worry (sticky
+      <p>Advocate: <b>"HOF Path B applied forward — this IS the philosophy."</b> Harnish-Ross's fiscal worry (sticky
       rungs unbounded if the ladder succeeds) largely dissolves: the existing quarterly performance bonus
       already makes coasting cost earnings continuously — <b>state that explicitly in the design</b>. Keep:
       Weaver's <b>red-circle FREEZE trigger</b> defined now + Horstman's documented <b>affirmative-keep
       conversation</b> before each rung.</p>
       <div class="owes done"><b>Confirmed — freeze trigger + affirmative-keep into the SOP</b></div>
     </div>
-    <div class="dcard" style="border-top-color: var(--gold);">
+    <div class="dcard" style="border-top-color: var(--gold);" id="pass2-call-3">
       <span class="locked-badge" style="background:var(--orange-50); color:var(--orange-dark); border-color:var(--orange);">⚠ Accepted w/ legibility gate</span>
       <h3>Call 1 — Streak engine (hours-weighted rolling avg + floor)</h3>
       <p>Engine accepted by all four — but every voice flagged legibility. <b>Ships ONLY with a self-serve
@@ -482,7 +569,7 @@
       at speed.</p>
       <div class="owes"><b>Gauge = app dependency (Mike/Matisen) · numbers off the backtest</b></div>
     </div>
-    <div class="dcard" style="border-top-color: var(--red);">
+    <div class="dcard" style="border-top-color: var(--red);" id="pass2-call-4">
       <span class="locked-badge" style="background:#FBEAE7; color:var(--red); border-color:#E8B4AC;">✕ Reconsider — redesigned</span>
       <h3>Call 2 — Lighter CHOICES gate</h3>
       <p>The pile-on: 3 of 4 named it their "reconsider." Weaver: gate outcome depends on which BM you got —
@@ -497,7 +584,7 @@
       transfers + Games visibility).</p>
       <div class="owes done"><b>Resolved — final form at Decision #6</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="pass2-call-5">
       <span class="locked-badge">✅ Pass · backtest scope grows</span>
       <h3>Call 5 — Matrix weights philosophy</h3>
       <p>Passes. The backtest adds <b>attendance market-skew</b> alongside the Dallas damage-skew check.
@@ -508,18 +595,19 @@
       positive-output answer.</p>
       <div class="owes done"><b>Confirmed — see Decision #5 for the philosophy</b></div>
     </div>
-    <div class="dcard" style="border-top-color: var(--blue);">
-      <span class="locked-badge" style="background:#E8F2FA; color:var(--blue); border-color:var(--blue);">＋ New unowned item</span>
+    <div class="dcard" style="border-top-color: var(--blue);" id="pass2-call-6">
+      <span class="locked-badge" style="background:#E8F2FA; color:var(--blue); border-color:var(--blue);">＋ New item · cross-ref</span>
       <h3>Monthly status delivery to the mover</h3>
       <p>All four voices converged on the same missing piece: someone has to hand the mover his status every
       month — ~90 seconds, verbal, from the BM, backed by the app readout. No mover ever learns a status
-      change from a spreadsheet. Nobody owns it yet. See Decision #13.</p>
-      <div class="owes"><b>Needs an owner — workshop</b></div>
+      change from a spreadsheet. <b>→ addressed at Decision #13 (Cameron leans app-first, contra this
+      consensus) — workshop ratifies.</b></p>
+      <div class="owes"><b>→ Decision #13 — workshop ratifies</b></div>
     </div>
   </div>
 
   <!-- ═══ 5. OPEN DECISIONS BOARD ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="decisions">
     <div class="eyebrow">The workshop core</div>
     <h2>Open Decisions Board</h2>
     <p>Fourteen calls stood between draft v1 and a publishable framework. The 7/2 walkthrough (pieces 1–6)
@@ -528,20 +616,33 @@
     names the options and who owes what; strike them as they lock.</p>
   </div>
 
-  <div class="locked-list" style="margin-bottom:20px;">
-    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Unpaid leave = streak PAUSES, never resets.</b>
+  <div class="viewer-bar" id="viewer-bar">
+    <span class="vb-label">Reviewing as:</span>
+    <button type="button" data-person="Anne">Anne</button>
+    <button type="button" data-person="Paul">Paul</button>
+    <button type="button" data-person="Cameron">Cameron</button>
+  </div>
+
+  <div class="dfilter" id="dfilter">
+    <button type="button" data-mode="all" class="active">All (14)</button>
+    <button type="button" data-mode="open">Open only</button>
+    <button type="button" data-mode="decided">Decided only</button>
+  </div>
+
+  <div class="locked-list" style="margin-bottom:20px;" id="locked-strip">
+    <div class="locked" data-decision="lock-1"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Unpaid leave = streak PAUSES, never resets.</b>
       (Decision #8, resolved.)</span></div>
-    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Rungs are STICKY.</b>
+    <div class="locked" data-decision="lock-2"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Rungs are STICKY.</b>
       Sustained post-promotion poor performance routes to the coaching→PIP track (100-point system machinery),
       never a pay demotion — "pay corrections are not performance ultimatums." (See new Decision #11 for the remaining wiring.)</span></div>
-    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Fast-track speed: LIT→Junior→Regular in ~9–10 months is acceptable AND desirable</b>
+    <div class="locked" data-decision="lock-3"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Fast-track speed: LIT→Junior→Regular in ~9–10 months is acceptable AND desirable</b>
       for exceptional performers. (The fast-track threshold itself stays open — Decision #4.)</span></div>
-    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — No separate experience gates.</b>
+    <div class="locked" data-decision="lock-4"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — No separate experience gates.</b>
       The hours floors already deliver the experience spread (busy season + move-type variety + handbook during LIT).</span></div>
   </div>
 
-  <div class="card-grid">
-    <div class="dcard">
+  <div class="card-grid" id="decisions-grid">
+    <div class="dcard" id="decision-01" data-decision="01">
       <div class="d-num">01</div>
       <h3>Streak rule</h3>
       <p><b>Option A (full reset) is ELIMINATED — Cameron, 7/2 PM.</b> B ("3 of last 4 months, none below a floor"),
@@ -553,7 +654,7 @@
       3-of-4+floor (see Pass 2, Call 1).</p>
       <div class="owes"><b>Backtest sets the numbers → Cameron ratifies</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-02" data-decision="02">
       <div class="d-num">02</div>
       <h3>Pay-column reconcile (was: "Senior Lead rung")</h3>
       <p><b>Corrected 7/2 PM:</b> Senior Lead is NOT a new rung — it's already in the live announced ladder.
@@ -561,14 +662,14 @@
       published bases) — a checking exercise, not a comp reopen.</p>
       <div class="owes"><b>Paul + Anne</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-03" data-decision="03">
       <div class="d-num">03</div>
       <h3>Bonus column</h3>
       <p>Confirm the ladder moves BASE only — the hourly variable ($2–3/hr) stays exactly as locked in May.
       No quarterly bonus mechanic mid-year.</p>
       <div class="owes"><b>Paul</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-04" data-decision="04">
       <div class="d-num">04</div>
       <h3>Fast-track calibration</h3>
       <p>Replace 4 perfect-10 months with 4 months at "Outstanding" — set the actual threshold off the
@@ -576,7 +677,7 @@
       LIT→Junior→Regular in ~9–10 months is acceptable and desirable for exceptional performers.</p>
       <div class="owes"><b>Backtest + Anne</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="decision-05" data-decision="05">
       <div class="d-num">05</div>
       <span class="locked-badge">✅ Philosophy set 7/2 PM</span>
       <h3>Performance Matrix weights</h3>
@@ -586,13 +687,13 @@
       damage-skew AND attendance-skew by market. Exact numbers come off the backtest.</p>
       <div class="owes"><b>Backtest (Matisen) → workshop sets the numbers</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="decision-06" data-decision="06">
       <div class="d-num">06</div>
       <span class="locked-badge">✅ Design resolved 7/2 late — pending workshop ratification</span>
       <h3>CHOICES gate — FINAL FORM ("fail-forward")</h3>
       <p><b>Weaver-confirmed final design — supersedes BOTH the evidentiary version and the
       universal-logging composite.</b> NO prior-evidence / logged-redirect requirement — deleted as
-      unmeasurable ("any design depending on 10 BMs keeping consistent ambient documentation is dead on
+      unmeasurable ("any design depending on 10 branch managers keeping consistent ambient documentation is dead on
       arrival"; logging rates have no denominator — Cameron's catch). A values block requires, <b>AT BLOCK
       TIME</b>: (a) a <b>named-virtue conversation</b> ("you're hungry and smart — here's where humble is
       missing"); (b) a <b>one-page block form</b> — virtue, observed behavior, 90-day improvement-window
@@ -604,7 +705,7 @@
       attendance-coding</b>, per branch, baselined pre-launch.</p>
       <div class="owes done"><b>Anne + Paul workshop ratifies</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="decision-07" data-decision="07">
       <div class="d-num">07</div>
       <span class="locked-badge">✅ Locked 7/2 PM</span>
       <h3>Hours basis</h3>
@@ -612,28 +713,28 @@
       week is the conversion standard wherever month-denominated math appears.</p>
       <div class="owes done"><b>Locked — Anne codifies</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="decision-08" data-decision="08">
       <div class="d-num">08</div>
       <span class="locked-badge">✅ Locked 7/2 PM</span>
       <h3>Streak gaps during leave</h3>
       <p><b>DECIDED:</b> Unpaid leave = streak PAUSES, never resets. Anne writes the rule into the SOP.</p>
       <div class="owes done"><b>Locked — Anne codifies</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-09" data-decision="09">
       <div class="d-num">09</div>
       <h3>PTO integration</h3>
       <p>Accrual decided directionally (Jan 1 start, Ben modeling, payout-at-term leaning yes, Paul wants
       ladder-gated eligibility). Design it as ONE system with this ladder, not two parallel announcements.</p>
       <div class="owes"><b>Anne + Paul + Ben</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-10" data-decision="10">
       <div class="d-num">10</div>
       <h3>Automation gate</h3>
       <p>The Rippling + Games data pull must be automated before any manual monthly BM review ships —
       manual reviews get pencil-whipped by month three.</p>
       <div class="owes"><b>Matisen</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard decided" id="decision-11" data-decision="11">
       <div class="d-num">11</div>
       <span class="locked-badge">✅ Direction locked 7/2 PM</span>
       <h3>Post-promotion floor</h3>
@@ -642,7 +743,7 @@
       Remaining design: wire the thresholds to Anne's 100-point system and define where the PIP trigger sits.</p>
       <div class="owes done"><b>Anne + Cameron</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-12" data-decision="12">
       <div class="d-num">12</div>
       <h3>Lead General gates</h3>
       <p>Unwritten today — but it IS an earned rung, the last one on the ladder, and its gates need defining.
@@ -650,17 +751,19 @@
       conflate the two.</p>
       <div class="owes"><b>Gates TBD — Anne + Cameron</b></div>
     </div>
-    <div class="dcard decided">
+    <div class="dcard" style="border-top-color: var(--gold);" id="decision-13" data-decision="13">
       <div class="d-num">13</div>
-      <span class="locked-badge">✅ Direction decided 7/2 late</span>
+      <span class="locked-badge" style="background:var(--orange-50); color:var(--orange-dark); border-color:var(--orange);">⚠ Open — Cameron's lean, contra council</span>
       <h3>Monthly status delivery to the mover</h3>
-      <p><b>DECIDED: app-first SELF-SERVE readout</b> — score, bar, hours gauge (possible Rippling push).
-      Monthly mandatory BM conversations explicitly <b>REJECTED at this scale</b>. The self-serve gauge is
-      the same build as Call 1's legibility gate — one deliverable in the Mover Super App performance spine
-      (module 2 of Mike's chassis roadmap).</p>
-      <div class="owes done"><b>Remaining: track the build ask — Mike/Matisen</b></div>
+      <p><b>CAMERON'S LEAN</b> — app-first self-serve readout (score/bar/hours gauge; possible Rippling
+      push); he doubts mandatory monthly BM conversations are schedulable at 10 branches ("we have to track
+      that ask"). <b>⚠ Runs CONTRA council consensus #6</b> (all four Pass-2 voices wanted human delivery of
+      status changes — Horstman: "the conversation, not the matrix, is the management"). Workshop RATIFIES
+      or pushes back. The self-serve gauge is the same build as Call 1's legibility gate — one deliverable
+      in the Mover Super App performance spine (module 2 of Mike's chassis roadmap).</p>
+      <div class="owes"><b>Workshop ratifies or pushes back · gauge build ask — Mike/Matisen</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard" id="decision-14" data-decision="14">
       <div class="d-num">14</div>
       <h3>Estimate-vs-actuals as a lead-track matrix input (Cameron's candidate, 7/2 late)</h3>
       <p>Catches the <b>slow-but-clean mover</b> — no damages, on-time, good driver score, never hustles,
@@ -675,7 +778,7 @@
   </div>
 
   <!-- ═══ 6. DATA ASKS IN FLIGHT ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="data-asks">
     <div class="eyebrow">Blocking inputs</div>
     <h2>Data Asks in Flight</h2>
     <p>Two analyses gate most of the decisions board. Nothing publishes before both land.</p>
@@ -704,7 +807,7 @@
   </div>
 
   <!-- ═══ 7. ROADMAP ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="roadmap">
     <div class="eyebrow">Progression</div>
     <h2>The Roadmap</h2>
     <p>Design → data → decisions → pilot → rollout. PTO accrual announce rides the same Jan 1 comms.</p>
@@ -723,7 +826,8 @@
       <div class="ph-num">02</div>
       <div>
         <h3>Backtest + cost model land <span class="ph-status">Next</span></h3>
-        <p>Matisen's backtest + Ben's Senior Lead / PTO cost model (7/9 Prosper call kicks off Ben's piece).
+        <p>Matisen's backtest + Ben's cost model (PTO accrual + payout-at-term; supports the pay-column
+        reconcile) — the 7/9 Prosper call kicks off Ben's piece.
         These resolve the streak rule, fast-track threshold, and pricing questions.</p>
       </div>
     </div>
@@ -731,7 +835,7 @@
       <div class="ph-num">03</div>
       <div>
         <h3>Decisions locked at/before QGR <span class="ph-status">Gate: 7/29–30</span></h3>
-        <p>All ten decisions ratified so the framework enters Q3 planning as a settled design, not a debate.</p>
+        <p>All open decisions ratified (14 on the board) so the framework enters Q3 planning as a settled design, not a debate.</p>
       </div>
     </div>
     <div class="phase next">
@@ -753,7 +857,7 @@
   </div>
 
   <!-- ═══ 8. CHANGELOG ═══ -->
-  <div class="section-head">
+  <div class="section-head" id="changelog">
     <div class="eyebrow">Running log</div>
     <h2>Changelog</h2>
     <p>One dated entry per working session — what changed, what's next. Newest first. Every session that
@@ -761,6 +865,15 @@
   </div>
 
   <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">7/3/2026</div>
+      <div class="log-body">
+        Design audit (2 critics) applied: #13 re-attributed as Cameron's-lean-contra-council, superseded
+        glosses, tone pass on the framework section (co-authors aren't graded), stable ids,
+        mobile/print/contrast fixes. NEW: reaction layer — review as Anne/Paul/Cameron, ✓/⚠ + notes per
+        decision, export workshop agenda.
+      </div>
+    </div>
     <div class="log-entry">
       <div class="log-date">7/3/2026 12:45a</div>
       <div class="log-body">
@@ -781,7 +894,7 @@
         Advocate) stress-tested Cameron's five calls: referee stack + sticky rungs pass, streak engine gets
         a legibility gate (self-serve mover gauge; fallback 3-of-4+floor), CHOICES gate redesigned (universal
         logging + sample-audit), integrity dashboard scope tripled (damage-assignment + attendance-coding +
-        redirect-logging rates).
+        redirect-logging rates) <span class="gloss">(later superseded by the fail-forward final form)</span>.
         <span class="next">Next: workshop works the remaining cards (incl. new #12 Lead General gates + #13 status-delivery owner) · backtest + cost model still gate publishing.</span>
       </div>
     </div>
@@ -813,5 +926,242 @@
   </footer>
 
 </div>
+
+<button type="button" class="export-fab" id="export-fab">📋 Export workshop agenda</button>
+
+<div class="rx-modal" id="rx-modal" role="dialog" aria-label="Workshop agenda export">
+  <div class="rm-box">
+    <h3>Workshop agenda (markdown)</h3>
+    <div class="rm-status" id="rm-status"></div>
+    <textarea id="rm-text" readonly></textarea>
+    <button type="button" class="rm-close" id="rm-close">Close</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var PEOPLE = ['Anne', 'Paul', 'Cameron'];
+  var VIEWER_KEY = 'mphq-viewer';
+  var RX_KEY = 'mphq-reactions-v1';
+
+  function loadReactions() {
+    try { return JSON.parse(localStorage.getItem(RX_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveReactions() {
+    try { localStorage.setItem(RX_KEY, JSON.stringify(reactions)); } catch (e) {}
+  }
+
+  var reactions = loadReactions();
+  var viewer = localStorage.getItem(VIEWER_KEY) || '';
+  if (PEOPLE.indexOf(viewer) === -1) viewer = '';
+
+  var viewerBar = document.getElementById('viewer-bar');
+  var cards = Array.prototype.slice.call(
+    document.querySelectorAll('#decisions-grid [data-decision], #locked-strip [data-decision]')
+  );
+
+  function cardTitle(el) {
+    var h = el.querySelector('h3');
+    if (h) {
+      var num = el.querySelector('.d-num');
+      return (num ? '#' + num.textContent.trim() + ' ' : '') + h.textContent.trim().replace(/\s+/g, ' ');
+    }
+    var b = el.querySelector('b');
+    return b ? b.textContent.trim().replace(/\s+/g, ' ') : el.getAttribute('data-decision');
+  }
+
+  function getEntry(person, id) {
+    return (reactions[person] && reactions[person][id]) || null;
+  }
+  function setEntry(person, id, entry) {
+    if (!reactions[person]) reactions[person] = {};
+    if (entry) reactions[person][id] = entry;
+    else delete reactions[person][id];
+    saveReactions();
+  }
+
+  /* ── viewer bar ── */
+  function renderViewerBar() {
+    Array.prototype.forEach.call(viewerBar.querySelectorAll('button'), function (b) {
+      b.classList.toggle('active', b.getAttribute('data-person') === viewer);
+    });
+  }
+  viewerBar.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-person]');
+    if (!btn) return;
+    viewer = btn.getAttribute('data-person');
+    try { localStorage.setItem(VIEWER_KEY, viewer); } catch (err) {}
+    renderViewerBar();
+    cards.forEach(renderCard);
+  });
+
+  function needViewer() {
+    viewerBar.classList.add('nudge');
+    viewerBar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function () { viewerBar.classList.remove('nudge'); }, 1800);
+  }
+
+  /* ── reaction rows ── */
+  function buildRow(el) {
+    var id = el.getAttribute('data-decision');
+    var row = document.createElement('div');
+    row.className = 'rx-row';
+    row.innerHTML =
+      '<div class="rx-actions">' +
+        '<button type="button" class="rx-btn" data-r="agree">✓ Agree</button>' +
+        '<button type="button" class="rx-btn" data-r="talk">⚠ Let’s talk</button>' +
+        '<button type="button" class="rx-btn" data-r="note">✎ Note</button>' +
+        '<span class="rx-chips"></span>' +
+      '</div>' +
+      '<textarea class="rx-note" placeholder="Note for the workshop…"></textarea>';
+    el.appendChild(row);
+
+    row.addEventListener('click', function (e) {
+      var btn = e.target.closest('.rx-btn');
+      if (!btn) return;
+      var kind = btn.getAttribute('data-r');
+      var note = row.querySelector('.rx-note');
+      if (kind === 'note') {
+        note.classList.toggle('show');
+        if (note.classList.contains('show')) note.focus();
+        return;
+      }
+      if (!viewer) { needViewer(); return; }
+      var entry = getEntry(viewer, id);
+      var cur = entry ? entry.r : '';
+      var next = (cur === kind) ? '' : kind;
+      var noteText = (entry && entry.note) || note.value || '';
+      if (!next && !noteText) setEntry(viewer, id, null);
+      else setEntry(viewer, id, { r: next, note: noteText });
+      if (next === 'talk') note.classList.add('show');
+      renderCard(el);
+    });
+
+    row.querySelector('.rx-note').addEventListener('input', function () {
+      if (!viewer) return;
+      var entry = getEntry(viewer, id) || { r: '', note: '' };
+      entry.note = this.value;
+      if (!entry.r && !entry.note) setEntry(viewer, id, null);
+      else setEntry(viewer, id, entry);
+      renderChips(el);
+    });
+  }
+
+  function renderChips(el) {
+    var id = el.getAttribute('data-decision');
+    var chips = el.querySelector('.rx-chips');
+    if (!chips) return;
+    var parts = [];
+    PEOPLE.forEach(function (p) {
+      var e = getEntry(p, id);
+      if (!e) return;
+      var mark = e.r === 'agree' ? '<span class="agree">✓</span>' :
+                 e.r === 'talk' ? '<span class="talk">⚠</span>' : '✎';
+      parts.push(p + ' ' + mark);
+    });
+    chips.innerHTML = parts.join(' · ');
+  }
+
+  function renderCard(el) {
+    var id = el.getAttribute('data-decision');
+    var row = el.querySelector('.rx-row');
+    if (!row) return;
+    var entry = viewer ? getEntry(viewer, id) : null;
+    var agreeBtn = row.querySelector('[data-r="agree"]');
+    var talkBtn = row.querySelector('[data-r="talk"]');
+    agreeBtn.classList.toggle('on-agree', !!entry && entry.r === 'agree');
+    talkBtn.classList.toggle('on-talk', !!entry && entry.r === 'talk');
+    var note = row.querySelector('.rx-note');
+    note.value = (entry && entry.note) || '';
+    if (entry && (entry.note || entry.r === 'talk')) note.classList.add('show');
+    renderChips(el);
+  }
+
+  cards.forEach(buildRow);
+  renderViewerBar();
+  cards.forEach(renderCard);
+
+  /* ── filter toggle ── */
+  var dfilter = document.getElementById('dfilter');
+  dfilter.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-mode]');
+    if (!btn) return;
+    var mode = btn.getAttribute('data-mode');
+    Array.prototype.forEach.call(dfilter.querySelectorAll('button'), function (b) {
+      b.classList.toggle('active', b === btn);
+    });
+    cards.forEach(function (el) {
+      var decided = el.classList.contains('decided') || el.classList.contains('locked');
+      var show = (mode === 'all') || (mode === 'open' ? !decided : decided);
+      el.style.display = show ? '' : 'none';
+    });
+  });
+
+  /* ── export ── */
+  function buildExport() {
+    var d = new Date();
+    var dateStr = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+    var who = viewer || 'Unassigned reviewer';
+    var lines = ['# Mover Promotion HQ — ' + who + '’s review, ' + dateStr, ''];
+
+    var talk = [], agree = [], unreviewed = [];
+    cards.forEach(function (el) {
+      var id = el.getAttribute('data-decision');
+      var title = cardTitle(el);
+      var any = false;
+      PEOPLE.forEach(function (p) {
+        var e = getEntry(p, id);
+        if (!e) return;
+        any = true;
+        var line = '- **' + title + '** — ' + p + (e.note ? ': ' + e.note : '');
+        if (e.r === 'talk' || (e.note && e.r !== 'agree')) talk.push(line);
+        else if (e.r === 'agree') agree.push(line);
+      });
+      if (!any) unreviewed.push('- ' + title);
+    });
+
+    lines.push('## ⚠ Let’s talk (workshop agenda)');
+    lines = lines.concat(talk.length ? talk : ['- (none)'], ['']);
+    lines.push('## ✓ Agreed');
+    lines = lines.concat(agree.length ? agree : ['- (none)'], ['']);
+    lines.push('## — Not yet reviewed');
+    lines = lines.concat(unreviewed.length ? unreviewed : ['- (none)'], ['']);
+    lines.push('_Reactions live per-device; each reviewer exports their own. Export = the sync mechanism._');
+    return lines.join('\n');
+  }
+
+  var modal = document.getElementById('rx-modal');
+  var rmText = document.getElementById('rm-text');
+  var rmStatus = document.getElementById('rm-status');
+
+  document.getElementById('export-fab').addEventListener('click', function () {
+    var md = buildExport();
+    rmText.value = md;
+    rmStatus.textContent = '';
+    modal.classList.add('show');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(md).then(function () {
+        rmStatus.textContent = 'Copied to clipboard ✓';
+      }, function () {
+        rmStatus.textContent = 'Copy blocked — select the text below and copy manually.';
+      });
+    } else {
+      rmStatus.textContent = 'Select the text below and copy manually.';
+    }
+  });
+  document.getElementById('rm-close').addEventListener('click', function () {
+    modal.classList.remove('show');
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) modal.classList.remove('show');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') modal.classList.remove('show');
+  });
+})();
+</script>
 </body>
 </html>
