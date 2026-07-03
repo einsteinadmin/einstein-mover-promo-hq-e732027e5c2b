@@ -250,6 +250,12 @@
   .rx-toast button { padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.55);
     background: transparent; color: #fff; font-weight: 700; cursor: pointer; font-size: .85rem; }
   .rx-toast button:hover { background: #fff; color: var(--navy); }
+  .rx-others { display: none; margin-top: 8px; padding: 8px 10px; background: #F4F7FA;
+    border-left: 3px solid #C9D6E2; border-radius: 6px; font-size: .83rem; line-height: 1.45; color: var(--navy); }
+  .rx-others.show { display: block; }
+  .rx-others .o-line + .o-line { margin-top: 6px; }
+  .rx-others .talk { color: var(--red); }
+  .rx-others .agree { color: var(--teal); }
 
   .dfilter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
   .dfilter button {
@@ -688,6 +694,45 @@
     strike them as they settle.</p>
   </div>
 
+  <div class="feature" id="workshop-agenda" style="border-left: 4px solid var(--orange);">
+    <div class="ft-eyebrow">Live workshop run-sheet — Fri 7/3 · 2:00 PM · all three reviews merged below (✓/⚠ chips + notes on every card)</div>
+    <h2>Stamp eight, clarify two, decide six.</h2>
+    <p><b>First 5 minutes — Anne finishes her pass:</b> #01 · #04 · #05 · #06 · #10 · #14 (+ glance the
+    clarified #03) right on this page, marks land live.</p>
+    <p><b>✅ Stamp (all aligned, ~3 min):</b> leave-pause · sticky rungs · fast-track speed · #07 hours basis
+    <i>(confirm Paul's note: floors restated from 40-hr to 35-hr weeks = −12.5% in hours)</i> · #08 streak
+    pause <i>(+ adopt Paul's returner rule? ≤12 months = resume where you left off; longer = restart the
+    rung)</i> · #10 automation gate · #11 post-promotion floor · #03 clarified 7/3 (show the new card,
+    30 seconds — Paul's question and Cameron's were the same question).</p>
+    <p><b>🔍 Quick clarifies (~10 min — mostly wording, not disagreement):</b> #04 fast-track "Outstanding"
+    = consecutive months EACH at the bar, never an average (Paul's worry is already the design) ·
+    #05 the backtest only CHECKS for market skew before weights are set — nothing pre-commits to
+    market-specific scoring (Paul's instinct and the design agree).</p>
+    <p><b>⚠ The real agenda (~40 min):</b></p>
+    <ol style="margin: 8px 0 0 20px; display: grid; gap: 8px;">
+      <li><b>#01 Streak engine</b> — Cameron leans D at hours gates + wants the admin mechanics answered
+        (does the system ping managers?); Paul leans B for recency. Name the convergence out loud: both
+        asks are recency-sensitivity — D's trailing-hours eligibility window IS a recency guard. Land the
+        criteria (hours-based · recency-sensitive · mover-legible · admin-automated), let the backtest pick
+        the formula.</li>
+      <li><b>Experience gates (Paul reopens)</b> — training completion required per rung. Bridge on the
+        table: Mike's training-app sprints become the per-rung training gate when the app rolls out —
+        ladder v1 doesn't wait on it.</li>
+      <li><b>#06 CHOICES gate</b> — Paul couldn't parse the card; Anne hasn't reviewed it and it's her
+        domain. Read it together, 10 minutes.</li>
+      <li><b>#12 Lead General gates + the HOF title</b> — Anne: sunset the separate HOF job title; Paul:
+        what ARE the extra qualifiers? Define the earned-rung gates and settle the title's future.</li>
+      <li><b>#13 Status delivery</b> — Anne (and the full council) want manager-delivered status; Cameron +
+        Paul lean app-first. Hybrid to test: the app is the always-on source; the BM delivers it in person
+        at status-CHANGE and promotion moments — not a monthly ritual.</li>
+      <li><b>#09 Sequencing</b> — ladder announces first, PTO lands ~Jan 1, designed together. Paul's
+        payout-at-termination = current practice, keep — but flag "required by law" for a counsel check
+        rather than treating it as settled.</li>
+    </ol>
+    <p><b>Close (~5 min):</b> owners + dates — Matisen backtest (rides today's sit-down) · Ben cost model
+    (7/9 Prosper call) · Anne codifies every stamped rule into the SOP · next touchpoint.</p>
+  </div>
+
   <div class="viewer-bar" id="viewer-bar">
     <span class="vb-label">Reviewing as:</span>
     <button type="button" data-person="Anne">Anne</button>
@@ -941,6 +986,17 @@
 
   <div class="changelog">
     <div class="log-entry">
+      <div class="log-date">7/3/2026 · pre-meeting</div>
+      <div class="log-body">
+        All three reaction exports in (Cameron · Paul · Anne — Slack + pulse). Merged into the page:
+        every card now shows the three-way ✓/⚠ chips AND each other's notes (previously notes were
+        private to your own device). 2:00 PM run-sheet added above the board: stamp 8 · clarify 2 ·
+        decide 6 (streak engine, experience-gates reopen, CHOICES walkthrough, Lead General + HOF title,
+        status delivery, PTO sequencing). Anne has 7 cards to finish — first 5 minutes of the meeting.
+        <span class="next">Next: run the 2 PM workshop from this board → strike cards as they settle → Anne codifies into the SOP.</span>
+      </div>
+    </div>
+    <div class="log-entry">
       <div class="log-date">7/3/2026 PM · later</div>
       <div class="log-body">
         Cameron's reaction pass COMPLETE (export banked). Board updates off his review: <b>#02 retired</b>
@@ -1058,7 +1114,46 @@
     try { localStorage.setItem(RX_KEY, JSON.stringify(reactions)); } catch (e) {}
   }
 
+  /* Seeded from the three 7/3 reaction exports (Cameron · Paul · Anne) so every device
+     shows the merged board. A person's own live marks always win over the seed. */
+  var SEED = {
+    "Cameron": {
+      "lock-1": {r:"agree", note:""}, "lock-2": {r:"agree", note:""}, "lock-3": {r:"agree", note:""}, "lock-4": {r:"agree", note:""},
+      "01": {r:"talk", note:"A is easiest administratively but even that comes with hours discrepancies. I feel like promotion decisions need to be made at hours gates (and thus D) — but how do we handle that administratively? Every time someone holds a rolling average above the bar for a sustained period, does the system ping? One of my biggest blockers, though I may be misunderstanding."},
+      "03": {r:"agree", note:""}, "04": {r:"agree", note:""}, "05": {r:"agree", note:""}, "06": {r:"agree", note:""},
+      "07": {r:"agree", note:""}, "08": {r:"agree", note:""},
+      "09": {r:"talk", note:"We want the promotion ladder rolled out earlier; PTO rolls out January 1st. Two separate, parallel announcements — designed together if possible."},
+      "10": {r:"agree", note:""}, "11": {r:"agree", note:""}, "12": {r:"agree", note:""}, "13": {r:"agree", note:""}, "14": {r:"agree", note:""}
+    },
+    "Paul": {
+      "lock-1": {r:"agree", note:""}, "lock-2": {r:"agree", note:""}, "lock-3": {r:"agree", note:""},
+      "lock-4": {r:"talk", note:"Reopening this call — I like a requirement for new training to be completed to reach each next level. Whether more advanced training or refreshers, additional education should be completed before the promotion."},
+      "01": {r:"talk", note:"I lean towards B because I want to know what you've been doing lately. Great performance six months ago shouldn't outweigh a poor last two months — D could cover that up and we'd promote a current poor performer."},
+      "03": {r:"talk", note:"(On the original wording) Not quite sure what this means — promotion impacts base and performance variable pay; we aren't changing dollar amounts, just how the next promotion is achieved. → This matches the 7/3 clarification on the card; confirm at the meeting."},
+      "04": {r:"talk", note:"What does outstanding performance mean? If it works like an average, current poor performance can hide inside it — I don't love that."},
+      "05": {r:"talk", note:"Market-specific scoring for damages (Dallas) I can see. Attendance should be the same across every market."},
+      "06": {r:"talk", note:"Honestly a little hard to read and understand — let's talk this one through in person."},
+      "07": {r:"agree", note:"Our hours floors were built on 40-hour weeks, so the floors will decrease 12.5%."},
+      "08": {r:"agree", note:"What happens if someone is terminated and comes back? Propose: 12 months or less, pick up where they left off; longer than 12 months, start back at the beginning of that promotion level."},
+      "09": {r:"talk", note:"Yes, definitely pay out at termination — that is how we do it now (possibly required by law). Otherwise people would just use it before they quit."},
+      "10": {r:"agree", note:""}, "11": {r:"agree", note:""},
+      "12": {r:"talk", note:"Are you saying you think we need additional qualifiers to become a Lead General?"},
+      "13": {r:"agree", note:""}, "14": {r:"agree", note:""}
+    },
+    "Anne": {
+      "lock-1": {r:"agree", note:""}, "lock-2": {r:"agree", note:""}, "lock-3": {r:"agree", note:""}, "lock-4": {r:"agree", note:""},
+      "07": {r:"agree", note:""}, "08": {r:"agree", note:""}, "09": {r:"agree", note:""}, "11": {r:"agree", note:""},
+      "12": {r:"talk", note:"I still think we need to sunset the separate HOF job title."},
+      "13": {r:"talk", note:"Performance conversations with a manager are the foundation of career development — movers are the critical piece in our flywheel, so we should align our resources (manager time) to what we say is important: the performance and development of our people."}
+    }
+  };
   var reactions = loadReactions();
+  Object.keys(SEED).forEach(function (p) {
+    if (!reactions[p]) reactions[p] = {};
+    Object.keys(SEED[p]).forEach(function (id) {
+      if (!reactions[p][id]) reactions[p][id] = SEED[p][id];
+    });
+  });
   var viewer = localStorage.getItem(VIEWER_KEY) || '';
   if (PEOPLE.indexOf(viewer) === -1) viewer = '';
 
@@ -1170,7 +1265,8 @@
         '<button type="button" class="rx-btn" data-r="note">✎ Note</button>' +
         '<span class="rx-chips"></span>' +
       '</div>' +
-      '<textarea class="rx-note" placeholder="Note for the workshop…"></textarea>';
+      '<textarea class="rx-note" placeholder="Note for the workshop…"></textarea>' +
+      '<div class="rx-others"></div>';
     el.appendChild(row);
 
     row.addEventListener('click', function (e) {
@@ -1210,6 +1306,22 @@
       parts.push(p + ' ' + mark);
     });
     chips.innerHTML = parts.join(' · ');
+    var others = el.querySelector('.rx-others');
+    if (others) {
+      var lines = [];
+      PEOPLE.forEach(function (p) {
+        if (p === viewer) return;
+        var e = getEntry(p, id);
+        if (!e || !e.note) return;
+        var mk = e.r === 'talk' ? '<span class="talk">⚠</span>' : (e.r === 'agree' ? '<span class="agree">✓</span>' : '✎');
+        lines.push('<div class="o-line"><b>' + p + ' ' + mk + ':</b> ' + escHtml(e.note) + '</div>');
+      });
+      others.innerHTML = lines.join('');
+      others.classList.toggle('show', lines.length > 0);
+    }
+  }
+  function escHtml(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function renderCard(el) {
