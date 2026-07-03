@@ -160,6 +160,14 @@
     background: var(--light); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px;
   }
   .owes b { color: var(--orange-dark); }
+  .dcard.decided { border-top-color: var(--teal); }
+  .locked-badge {
+    display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: 1px;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 12px; margin-bottom: 8px;
+    background: #E6F4F2; color: var(--teal); border: 1px solid var(--teal); align-self: flex-start;
+  }
+  .owes.done { background: #E6F4F2; border-color: var(--teal); }
+  .owes.done b { color: var(--teal); }
 
   /* ─── Data asks ─── */
   .ask-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 16px; }
@@ -250,8 +258,9 @@
     <h2>Draft v1 exists, positions are locked, the council has spoken — now the workshop decides.</h2>
     <p>Anne + Paul drafted the ladder 7/2. Cameron walked it the same day and locked his positions,
     then ran a six-voice consultant council (cross-ranked). Two data asks are in flight (Matisen backtest,
-    Ben cost model). Ten open decisions below are the workshop agenda — nothing publishes to the field
-    until the backtest and cost model land.</p>
+    Ben cost model). The evening walkthrough (7/2 PM) locked four decisions and corrected the Senior-Lead
+    "new rung" claim; the remaining open decisions below are the workshop agenda — nothing publishes to the
+    field until the backtest and cost model land.</p>
   </div>
 
   <!-- ═══ 2. THE FRAMEWORK ═══ -->
@@ -260,6 +269,13 @@
     <h2>The Framework</h2>
     <p>The ladder as drafted. Two elements are contested by the council and flagged below — see the
     Open Decisions board before treating any bar or rule as final.</p>
+  </div>
+
+  <div class="feature" style="margin-top:0; border-left-color: var(--teal);">
+    <div class="ft-eyebrow" style="color: var(--teal);">Reframe · 7/2 PM walkthrough</div>
+    <p style="color: var(--ink);">The company already publicly promised movers <b>"Hours + performance. No mystery."</b>
+    in the May pay announcement. This framework is the overdue <b>DEFINITION of the performance half of that
+    promise</b> — not a new comp system.</p>
   </div>
 
   <div class="table-scroll">
@@ -271,7 +287,7 @@
         <tr><td class="rung">Lead in Training (LIT)</td><td>480</td><td>7.0</td><td>$19–20</td><td>—</td></tr>
         <tr><td class="rung">Junior Lead</td><td>962</td><td>7.5</td><td>$20–21</td><td>—</td></tr>
         <tr><td class="rung">Regular Lead</td><td>962</td><td>8.0</td><td>$20.50–21.50</td><td>—</td></tr>
-        <tr><td class="rung">Senior Lead <span class="tag new">New rung — unpriced</span></td><td>962</td><td>9.0</td><td>$21–22</td><td>—</td></tr>
+        <tr><td class="rung">Senior Lead <span class="tag new">In the announced ladder</span></td><td>962</td><td>9.0</td><td>$21–22</td><td>—</td></tr>
         <tr><td class="rung">Master Lead</td><td>1,924</td><td>9.5</td><td>$21.50–22.50</td><td>+5 days</td></tr>
         <tr><td class="rung">Lead General</td><td>—</td><td>—</td><td>$22–23</td><td>+10 days</td></tr>
       </tbody>
@@ -281,7 +297,7 @@
   <div class="rules-grid">
     <div class="rule contested"><b>Sustained = 3 consecutive months at bar</b>
       Draft says one month below the bar = full streak reset. <span class="tag contested">Contested</span> — the council
-      killed the full reset; see Decision #1.</div>
+      killed the full reset and Cameron eliminated it 7/2 PM; see Decision #1.</div>
     <div class="rule"><b>Monthly review, effective the 1st</b>
       Promotion status reviewed every month; changes take effect the first of the following month.</div>
     <div class="rule"><b>Eligibility ≠ entitlement</b>
@@ -344,6 +360,16 @@
   </div>
   <p class="borda-note">Harnish-Ross won decisively on the money questions (score integrity, bonus-mechanic conflict,
   Senior Lead pricing). The Advocate placing third flags that the draft reopens locked comp doctrine mid-year.</p>
+
+  <div class="tension" style="background:#FBEAE7; border-color:#E8B4AC;">
+    <h3 style="color: var(--red);">⚠ Correction (7/2 PM)</h3>
+    <p>The council brief wrongly called Senior Lead a new unpriced rung — it exists in the announced ladder.
+    The live mover pay announcement already publishes the full 6-rung ladder INCLUDING Sr. Lead (perf bonus
+    $2.25→$2.50) and the same hours mechanics (LIT ~480 hrs, 962+/rung) under "How you move up: Hours +
+    performance. No mystery." The Harnish-Ross/Advocate "mid-year comp reopen" concern shrinks to a
+    pay-column reconcile; their backtest-first + score-integrity arguments stand. Bonus wording likely
+    reconciles too: mover perf bonuses are hourly rates calculated quarterly.</p>
+  </div>
 
   <div class="consensus-list">
     <div class="consensus"><div class="c-num">1</div><div><b>Backtest + cost BEFORE publishing anything.</b>
@@ -415,24 +441,42 @@
   <div class="section-head">
     <div class="eyebrow">The workshop core</div>
     <h2>Open Decisions Board</h2>
-    <p>Ten calls stand between draft v1 and a publishable framework. Each card names the options and who
-    owes what. Work these in the Cameron + Anne + Paul workshop; strike them as they lock.</p>
+    <p>Eleven calls stood between draft v1 and a publishable framework. The 7/2 PM walkthrough locked four
+    (✅ below + the teal cards); the rest are the Cameron + Anne + Paul workshop agenda. Each card names the
+    options and who owes what; strike them as they lock.</p>
+  </div>
+
+  <div class="locked-list" style="margin-bottom:20px;">
+    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Unpaid leave = streak PAUSES, never resets.</b>
+      (Decision #8, resolved.)</span></div>
+    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Rungs are STICKY.</b>
+      Sustained post-promotion poor performance routes to the coaching→PIP track (100-point system machinery),
+      never a pay demotion — "pay corrections are not performance ultimatums." (See new Decision #11 for the remaining wiring.)</span></div>
+    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — Fast-track speed: LIT→Junior→Regular in ~9–10 months is acceptable AND desirable</b>
+      for exceptional performers. (The fast-track threshold itself stays open — Decision #4.)</span></div>
+    <div class="locked"><span class="lock-ic">✅</span><span><b>LOCKED 7/2 PM — No separate experience gates.</b>
+      The hours floors already deliver the experience spread (busy season + move-type variety + handbook during LIT).</span></div>
   </div>
 
   <div class="card-grid">
     <div class="dcard">
       <div class="d-num">01</div>
       <h3>Streak rule</h3>
-      <p>Full reset (draft) vs "3 of last 4 months, none below a floor" vs pause-not-reset. The council
-      killed the full reset; the backtest shows how often clean streaks contain a single bad month.</p>
-      <div class="owes"><b>Backtest decides → Cameron ratifies</b></div>
+      <p><b>Option A (full reset) is ELIMINATED — Cameron, 7/2 PM.</b> B ("3 of last 4 months, none below a floor"),
+      C (pause-not-reset), and D (rolling average + floor) remain; Cameron leans D as fairest, with a new HARD
+      REQUIREMENT: the average must be <b>hours-weighted</b> or computed over a rolling <b>hours</b> window
+      (e.g. last ~500 hours) — a 40-hour month cannot weigh the same as a 160-hour month; calendar-month
+      averaging is invalid. If C wins it needs a completion window. Queued for a targeted consultant
+      pressure-test (B vs C vs D + the hours-weighting mechanics).</p>
+      <div class="owes"><b>Consultant pressure-test + backtest → Cameron ratifies</b></div>
     </div>
     <div class="dcard">
       <div class="d-num">02</div>
-      <h3>Senior Lead rung</h3>
-      <p>Ships inside the locked comp structure after Ben prices it — or waits for the next comp cycle.
-      Either way, it does not exist until it's costed against the 40% ceiling.</p>
-      <div class="owes"><b>Paul + Ben</b></div>
+      <h3>Pay-column reconcile (was: "Senior Lead rung")</h3>
+      <p><b>Corrected 7/2 PM:</b> Senior Lead is NOT a new rung — it's already in the live announced ladder.
+      Reconcile Anne's pay column line-by-line vs the live announcement pages (e.g. her LIT $19/20 vs
+      published bases) — a checking exercise, not a comp reopen.</p>
+      <div class="owes"><b>Paul + Anne</b></div>
     </div>
     <div class="dcard">
       <div class="d-num">03</div>
@@ -445,7 +489,8 @@
       <div class="d-num">04</div>
       <h3>Fast-track calibration</h3>
       <p>Replace 4 perfect-10 months with 4 months at "Outstanding" — set the actual threshold off the
-      backtest's attainability read so the path is real, not a poster.</p>
+      backtest's attainability read so the path is real, not a poster. <b>Speed is LOCKED (7/2 PM):</b>
+      LIT→Junior→Regular in ~9–10 months is acceptable and desirable for exceptional performers.</p>
       <div class="owes"><b>Backtest + Anne</b></div>
     </div>
     <div class="dcard">
@@ -468,12 +513,12 @@
       <p>What does a "month of hours" mean for accrual math? Cameron leans 35 standardized.</p>
       <div class="owes"><b>Anne</b></div>
     </div>
-    <div class="dcard">
+    <div class="dcard decided">
       <div class="d-num">08</div>
+      <span class="locked-badge">✅ Locked 7/2 PM</span>
       <h3>Streak gaps during leave</h3>
-      <p>Medical, parental, or other protected leave in the middle of a streak: pause the clock or reset it?
-      (Pause is the obvious lean — needs a written rule.)</p>
-      <div class="owes"><b>Anne</b></div>
+      <p><b>DECIDED:</b> Unpaid leave = streak PAUSES, never resets. Anne writes the rule into the SOP.</p>
+      <div class="owes done"><b>Locked — Anne codifies</b></div>
     </div>
     <div class="dcard">
       <div class="d-num">09</div>
@@ -488,6 +533,15 @@
       <p>The Rippling + Games data pull must be automated before any manual monthly BM review ships —
       manual reviews get pencil-whipped by month three.</p>
       <div class="owes"><b>Matisen</b></div>
+    </div>
+    <div class="dcard decided">
+      <div class="d-num">11</div>
+      <span class="locked-badge">✅ Direction locked 7/2 PM</span>
+      <h3>Post-promotion floor</h3>
+      <p>What happens on sustained poor performance AFTER a promotion? <b>DIRECTION LOCKED:</b> rungs are
+      sticky — route to the coaching→PIP track (100-point system machinery), never a pay demotion.
+      Remaining design: wire the thresholds to Anne's 100-point system and define where the PIP trigger sits.</p>
+      <div class="owes done"><b>Anne + Cameron</b></div>
     </div>
   </div>
 
@@ -512,7 +566,7 @@
     <div class="ask">
       <h3>Ben (Prosper) — cost model</h3>
       <ul>
-        <li>Senior Lead rung pricing inside the locked structure</li>
+        <li>Pay-column reconcile support: Anne's draft ranges vs the published announcement bases (Sr. Lead already exists in the announced ladder — see Decision #2 correction)</li>
         <li>PTO accrual cost + payout-at-termination modeling</li>
         <li>All of it vs the 40% mover-comp-to-revenue ceiling</li>
       </ul>
@@ -578,6 +632,15 @@
   </div>
 
   <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">7/2/2026 PM</div>
+      <div class="log-body">
+        Walkthrough pieces 3–4 with Cameron: Option A eliminated, D leads w/ hours-weighting requirement,
+        sticky-rungs + leave-pause + fast-track-speed locked; Senior-Lead "new rung" claim CORRECTED against
+        the live pay announcement; reframe added (framework = definition of the announced "hours + performance" promise).
+        <span class="next">Next: targeted consultant pressure-test on the streak rule (B vs C vs D + hours-weighting mechanics) + Paul/Anne pay-column reconcile.</span>
+      </div>
+    </div>
     <div class="log-entry">
       <div class="log-date">7/2/2026</div>
       <div class="log-body">
