@@ -351,10 +351,6 @@
   .tab-btn.active { color: var(--navy); border-bottom-color: var(--orange); }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
-  .howto-col h4 { color: var(--navy); font-size: 1.05rem; margin: 22px 0 8px; }
-  .howto-col h4:first-child { margin-top: 0; }
-  .howto-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-  @media (max-width: 800px) { .howto-cols { grid-template-columns: 1fr; } }
   .hist-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .hist-date { flex: 0 0 108px; font-weight: 700; color: var(--navy); font-size: .85rem; }
   .hist-text { flex: 1; font-size: .92rem; color: var(--ink); }
@@ -381,6 +377,85 @@
   }
   #ladder-table.editing .cell-value:focus { outline: 2px solid var(--orange); background: #fff; }
   .cell-value.dirty { box-shadow: inset 0 -2px 0 var(--teal); }
+
+  /* ═══ HOW IT WORKS — card redesign (matches einstein-mover-pay-premium look) ═══ */
+  :root {
+    --radius: 10px;
+    --radius-lg: 14px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+  }
+  .hiw-hero {
+    background: linear-gradient(135deg, #fff 0%, var(--orange-50) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 4vw, 40px);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .hiw-hero::before {
+    content: '';
+    position: absolute;
+    top: -70px; right: -70px;
+    width: 220px; height: 220px;
+    background: var(--orange);
+    opacity: 0.10;
+    border-radius: 50%;
+  }
+  .hiw-hero-eyebrow {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hiw-hero h2 { font-size: clamp(22px, 2.8vw, 30px); font-weight: 800; color: var(--navy); margin: 0 0 10px; position: relative; }
+  .hiw-hero p { font-size: 15px; color: var(--ink); max-width: 680px; margin: 0; position: relative; }
+
+  .hiw-audience { margin-bottom: 40px; }
+  .hiw-audience-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .hiw-audience-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .hiw-audience-tag.mgr { background: #E4F0F9; color: var(--blue); }
+  .hiw-audience-tag.mvr { background: var(--orange-50); color: var(--orange-dark); }
+  .hiw-audience-head h3 { font-size: 20px; font-weight: 800; color: var(--navy); margin: 0; }
+
+  .hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .hiw-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hiw-card.mgr { border-top: 4px solid var(--blue); }
+  .hiw-card.mvr { border-top: 4px solid var(--orange); }
+  .hiw-card h4 { font-size: 15.5px; font-weight: 800; color: var(--navy); margin: 0 0 8px; line-height: 1.3; }
+  .hiw-card p { font-size: 13.5px; color: var(--ink); margin: 0 0 8px; }
+  .hiw-card p:last-child { margin-bottom: 0; }
+  .hiw-card ul { margin: 0 0 8px 20px; font-size: 13.5px; color: var(--ink); }
+  .hiw-card ul:last-child { margin-bottom: 0; }
+  .hiw-card.wide { grid-column: 1 / -1; }
+  @media (max-width: 640px) { .hiw-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -1988,100 +2063,127 @@
   </div><!-- /tab-panel-history -->
 
   <div class="tab-panel" id="tab-panel-howto">
-    <div class="section-head">
-      <div class="eyebrow">Mechanics, not history</div>
+    <div class="hiw-hero">
+      <div class="hiw-hero-eyebrow">Mechanics, not history</div>
       <h2>How It Works</h2>
       <p>What this actually means for you, whether you manage the process or you're the one being evaluated.
       Numbers that are still being finalized are marked TBD — check the Framework tab for the latest.</p>
     </div>
 
-    <div class="howto-cols">
-      <div class="howto-col">
-        <h3 style="color:var(--navy);">For Branch Managers</h3>
-
-        <h4>The monthly rhythm</h4>
-        <p>Around the 1st of each month, the system checks who's crossed an hours mark and flags them for
-        review — split into <b>qualified</b> (hours and every performance metric clear the bar) and
-        <b>not qualified</b> (tells you exactly which metric is holding them back).</p>
-
-        <h4>Your job</h4>
-        <p>Approve a qualified promotion, or deny it. Approved promotions push straight into Rippling — no
-        separate paperwork.</p>
-        <p><b>Hours alone don't get anyone promoted.</b> A mover who hits the hours required to be
-        considered but doesn't clear the required floor on the performance metrics will not be promoted —
-        no exceptions for tenure. This is part of Einstein's continued move from an entitlement-based culture
-        to a performance-based one, and the standard is the same for everyone.</p>
-
-        <h4>Part-Time Lead → Junior Lead needs your judgment, not just data</h4>
-        <p>This is the one gate that isn't purely automatic. A Part-Time Lead becomes eligible at 400 hours
-        worked as a lead, or 80%+ of jobs led across 2 back-to-back pay periods — but promotion is based on
-        business need for a Lead. If there's no need right now, that's a real "not yet," not a system
-        error.</p>
-
-        <h4>What to tell someone who has the hours but not the bar</h4>
-        <p>Be specific: "you've got the hours, but your Samsara score needs to come up before you clear the
-        bar" — not a vague "not this time." They're automatically re-evaluated next month; there's nothing
-        for them to file or request.</p>
-
-        <h4>When a promotion actually takes effect</h4>
-        <p>Any promotion goes live at the <b>start of the following pay period</b> — never mid-period. That
-        keeps the title change and the pay change landing on the same day, so there's no gap where someone's
-        doing the new job at the old rate.</p>
-
-        <h4>No grandfathering</h4>
-        <p>Everyone gets evaluated under the new rules the moment this launches — including someone who was
-        about to hit an old tenure-only promotion. Nobody loses their current title or pay; this only changes
-        what earns the <i>next</i> one.</p>
-
-        <h4>Still being finalized</h4>
-        <p>The performance bars — especially the fast-track bar — aren't locked yet. They're coming off a
-        real look-back at team data, not a preset number. Expect an update before this goes live
-        company-wide.</p>
+    <div class="hiw-audience">
+      <div class="hiw-audience-head">
+        <span class="hiw-audience-tag mgr">Branch Managers</span>
+        <h3>For Branch Managers</h3>
       </div>
+      <div class="hiw-grid">
+        <div class="hiw-card mgr">
+          <h4>The monthly rhythm</h4>
+          <p>Around the 1st of each month, the system checks who's crossed an hours mark and flags them for
+          review — split into <b>qualified</b> (hours and every performance metric clear the bar) and
+          <b>not qualified</b> (tells you exactly which metric is holding them back).</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>Your job</h4>
+          <p>Approve a qualified promotion, or deny it. Approved promotions push straight into Rippling — no
+          separate paperwork.</p>
+        </div>
+        <div class="hiw-card mgr wide">
+          <h4>Hours alone don't get anyone promoted</h4>
+          <p>A mover who hits the hours required to be considered but doesn't clear the required floor on
+          the performance metrics will not be promoted — no exceptions for tenure. This is part of Einstein's
+          continued move from an entitlement-based culture to a performance-based one, and the standard is
+          the same for everyone.</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>Part-Time Lead → Junior Lead needs your judgment, not just data</h4>
+          <p>This is the one gate that isn't purely automatic. A Part-Time Lead becomes eligible at 400 hours
+          worked as a lead, or 80%+ of jobs led across 2 back-to-back pay periods — but promotion is based on
+          business need for a Lead. If there's no need right now, that's a real "not yet," not a system
+          error.</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>What to tell someone who has the hours but not the bar</h4>
+          <p>Be specific: "you've got the hours, but your Samsara score needs to come up before you clear
+          the bar" — not a vague "not this time." They're automatically re-evaluated next month; there's
+          nothing for them to file or request.</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>When a promotion actually takes effect</h4>
+          <p>Any promotion goes live at the <b>start of the following pay period</b> — never mid-period.
+          That keeps the title change and the pay change landing on the same day, so there's no gap where
+          someone's doing the new job at the old rate.</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>No grandfathering</h4>
+          <p>Everyone gets evaluated under the new rules the moment this launches — including someone who
+          was about to hit an old tenure-only promotion. Nobody loses their current title or pay; this only
+          changes what earns the <i>next</i> one.</p>
+        </div>
+        <div class="hiw-card mgr">
+          <h4>Still being finalized</h4>
+          <p>The performance bars — especially the fast-track bar — aren't locked yet. They're coming off a
+          real look-back at team data, not a preset number. Expect an update before this goes live
+          company-wide.</p>
+        </div>
+      </div>
+    </div>
 
-      <div class="howto-col">
-        <h3 style="color:var(--navy);">For Movers</h3>
-
-        <h4>Two ways to get promoted</h4>
-        <p><b>Standard path:</b> work enough hours in your current role, and keep your attendance, driving,
-        and damages all above the minimum bar. Once both are true, you're eligible.</p>
-        <p><b>Fast path:</b> if your performance is excellent — well above the standard bar — over roughly
-        your last 3 months, you can get promoted with fewer hours worked. The exact bar for "excellent" is
-        still being set.</p>
-
-        <h4>What counts</h4>
-        <ul style="margin:0 0 10px 22px;">
-          <li><b>Attendance</b> — lates and call-outs</li>
-          <li><b>Driver score (Samsara)</b> — your own driving: no rolling stops, no phone use, safe
-          following distance</li>
-          <li><b>Damages</b> — scored for the whole crew on a job, not pinned on one person unless someone's
-          clearly and individually responsible</li>
-        </ul>
-
-        <h4>Where to check your own performance</h4>
-        <p>Your general performance metrics come from the <b>Einstein Games app</b> — that's the same place
-        you can already check your own numbers today, before a dedicated promotion-status view exists.</p>
-
-        <h4>You get checked every month, automatically</h4>
-        <p>Don't qualify this month? You don't have to do anything — you'll be looked at again next month.
-        Your <b>most recent ~3 months</b> matter most, so a rough patch a while back doesn't follow you
-        forever.</p>
-
-        <h4>Part-Time Lead is a little different</h4>
-        <p>Getting from Part-Time Lead to Junior Lead isn't just about your hours — it's also based on
-        business need for a Lead. Ask your manager where that stands.</p>
-
-        <h4>When your new pay starts</h4>
-        <p>A promotion always takes effect at the <b>start of the next pay period</b> — not partway through
-        one. Your title and your new pay change on the same day.</p>
-
-        <h4>Nobody gets demoted</h4>
-        <p>This only affects what it takes to earn your <i>next</i> promotion. Where you are today doesn't
-        change.</p>
-
-        <h4>Questions?</h4>
-        <p>Talk to your branch manager — they can tell you exactly where you stand and what would move the
-        needle fastest.</p>
+    <div class="hiw-audience">
+      <div class="hiw-audience-head">
+        <span class="hiw-audience-tag mvr">Movers</span>
+        <h3>For Movers</h3>
+      </div>
+      <div class="hiw-grid">
+        <div class="hiw-card mvr wide">
+          <h4>Two ways to get promoted</h4>
+          <p><b>Standard track:</b> work enough hours in your current role, and keep your attendance,
+          driving, and damages all above the minimum bar. Once both are true, you're eligible.</p>
+          <p><b>Fast track:</b> if your performance is excellent — well above the standard bar — over
+          roughly your last 3 months, you can get promoted with fewer hours worked. The exact bar for
+          "excellent" is still being set.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>What counts</h4>
+          <ul>
+            <li><b>Attendance</b> — lates and call-outs</li>
+            <li><b>Driver score (Samsara)</b> — your own driving: no rolling stops, no phone use, safe
+            following distance</li>
+            <li><b>Damages</b> — scored for the whole crew on a job, not pinned on one person unless
+            someone's clearly and individually responsible</li>
+          </ul>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>Where to check your own performance</h4>
+          <p>Your general performance metrics come from the <b>Einstein Games app</b> — that's the same
+          place you can already check your own numbers today, before a dedicated promotion-status view
+          exists.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>You get checked every month, automatically</h4>
+          <p>Don't qualify this month? You don't have to do anything — you'll be looked at again next
+          month. Your <b>most recent ~3 months</b> matter most, so a rough patch a while back doesn't
+          follow you forever.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>Part-Time Lead is a little different</h4>
+          <p>Getting from Part-Time Lead to Junior Lead isn't just about your hours — it's also based on
+          business need for a Lead. Ask your manager where that stands.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>When your new pay starts</h4>
+          <p>A promotion always takes effect at the <b>start of the next pay period</b> — not partway
+          through one. Your title and your new pay change on the same day.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>Nobody gets demoted</h4>
+          <p>This only affects what it takes to earn your <i>next</i> promotion. Where you are today
+          doesn't change.</p>
+        </div>
+        <div class="hiw-card mvr">
+          <h4>Questions?</h4>
+          <p>Talk to your branch manager — they can tell you exactly where you stand and what would move
+          the needle fastest.</p>
+        </div>
       </div>
     </div>
   </div><!-- /tab-panel-howto -->
