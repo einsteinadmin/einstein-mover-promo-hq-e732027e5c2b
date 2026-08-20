@@ -340,10 +340,40 @@
     .viewer-bar, .dfilter, .rx-row, .export-fab, .rx-modal, .rx-toast { display: none !important; }
     .print-note { display: block; font-size: .8rem; font-style: italic; color: var(--gray); margin-top: 8px; }
   }
+
+  /* ═══ TABS ═══ */
+  .tab-nav { display: flex; gap: 8px; margin: 0 0 24px; border-bottom: 2px solid var(--line); flex-wrap: wrap; }
+  .tab-btn {
+    font: inherit; font-size: .92rem; font-weight: 700; color: var(--gray); background: none; border: none;
+    padding: 10px 16px; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+  }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--orange); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .howto-col h4 { color: var(--navy); font-size: 1.05rem; margin: 22px 0 8px; }
+  .howto-col h4:first-child { margin-top: 0; }
+  .howto-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 800px) { .howto-cols { grid-template-columns: 1fr; } }
+  .hist-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .hist-date { flex: 0 0 108px; font-weight: 700; color: var(--navy); font-size: .85rem; }
+  .hist-text { flex: 1; font-size: .92rem; color: var(--ink); }
+  @media print {
+    .tab-nav { display: none; }
+    .tab-panel { display: block !important; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
+  <nav class="tab-nav" id="tab-nav">
+    <button type="button" class="tab-btn active" data-tab="framework">Framework &amp; Decisions</button>
+    <button type="button" class="tab-btn" data-tab="history">Decision History</button>
+    <button type="button" class="tab-btn" data-tab="howto">How It Works</button>
+  </nav>
+
+  <div class="tab-panel active" id="tab-panel-framework">
 
   <!-- ═══ 1. CONTEXT HEADER ═══ -->
   <div class="eyebrow">Employee Experience · Finance · Project HQ</div>
@@ -1831,6 +1861,152 @@
     Internal use — do not share outside Einstein without Cameron's OK.
   </footer>
 
+  </div><!-- /tab-panel-framework -->
+
+  <div class="tab-panel" id="tab-panel-history">
+    <div class="section-head">
+      <div class="eyebrow">How we got here</div>
+      <h2>Decision History</h2>
+      <p>The short version. Full detail, quotes, and sourcing live in the Framework &amp; Decisions tab and
+      the changelog at the bottom of it — this is the version you read in two minutes.</p>
+    </div>
+
+    <div class="hist-item"><div class="hist-date">7/2/2026</div><div class="hist-text">Anne + Paul draft the
+    framework. Cameron walks it the same day and sets his initial positions; a six-voice consultant council
+    cross-ranks the draft. This HQ gets built.</div></div>
+
+    <div class="hist-item"><div class="hist-date">7/3/2026</div><div class="hist-text"><b>Workshop —
+    10 decisions locked in the room:</b> streak formula (rolling average over hours since last promotion),
+    35-hr/wk basis, leave-pause + 1-year return rule, sticky rungs, Lead General as an earned no-cap rung,
+    app-first status delivery, the fail-forward CHOICES gate, no experience-only gates, automation, and a
+    review cadence. Two items pend a backtest; PTO is explicitly left undecided.</div></div>
+
+    <div class="hist-item"><div class="hist-date">7/15/2026</div><div class="hist-text">Cameron approves the
+    PTO plan. Only a cost-model check is left before it fully locks.</div></div>
+
+    <div class="hist-item"><div class="hist-date">7/17/2026</div><div class="hist-text">Hours floors get
+    re-based to the 35-hr/wk basis: 455 for the entry gate, 910 for each mid-ladder rung, 1,820 for Master
+    Lead.</div></div>
+
+    <div class="hist-item"><div class="hist-date">7/24/2026</div><div class="hist-text">The
+    performance-warning question gets answered — only written warnings reset the streak clock, effective the
+    day they're issued.</div></div>
+
+    <div class="hist-item"><div class="hist-date">7/30/2026</div><div class="hist-text"><b>QGR ruling:</b>
+    damages goes IN the promotion gate AND stays in the bonus — settles a running fight over whether damages
+    should count at all.</div></div>
+
+    <div class="hist-item"><div class="hist-date">8/19/2026</div><div class="hist-text">Working session
+    (Anne + Paul + Matisen): Part-Time Lead added as its own rung · fast-track hours corrected 560 → 595 ·
+    the rolling-average scoring mechanic reconfirmed · Lead General gets proposed gates · Paul joins as HQ
+    co-owner.</div></div>
+
+    <div class="hist-item"><div class="hist-date">8/20/2026<br>(session 1)</div><div class="hist-text">
+    <b>Decision #18 resolved</b> — multi-mover damages attribution: individual fault stays a coaching-side
+    note only; team/job-level attribution runs the bonus and the gates. Six amendments close the design gaps.
+    The two attorney-confirm questions get answered directly (pair coaching with a Same Day Summary; nobody
+    terminated FOR a damage specifically).</div></div>
+
+    <div class="hist-item"><div class="hist-date">8/20/2026<br>(session 2)</div><div class="hist-text">
+    Anne + Paul catch and fix a same-day mistake — fast-track is NOT a one-time check, it re-checks every
+    month using a fixed ~3-month look-back, same as the standard track. Table restructured into paired
+    Standard/Fast Track columns. Part-Time Lead → Junior Lead threshold confirmed (400 hrs as lead, or 80%+
+    led over 2 back-to-back pay periods). New decision: no grandfathering — everyone's evaluated under the
+    new rules from day one.</div></div>
+
+    <div class="hist-item"><div class="hist-date">8/20/2026<br>(session 3)</div><div class="hist-text">
+    Lead in Training and Part-Time Lead split back into two full rows — they run on genuinely different
+    gates, not one shared number.</div></div>
+
+    <div class="hist-item"><div class="hist-date">8/20/2026<br>(session 4)</div><div class="hist-text">
+    This Decision History tab and the How It Works tab get added, so the full decision trail and the
+    plain-language mechanics live in the same place without scrolling past each other.</div></div>
+  </div><!-- /tab-panel-history -->
+
+  <div class="tab-panel" id="tab-panel-howto">
+    <div class="section-head">
+      <div class="eyebrow">Mechanics, not history</div>
+      <h2>How It Works</h2>
+      <p>What this actually means for you, whether you manage the process or you're the one being evaluated.
+      Numbers that are still being finalized are marked TBD — check the Framework tab for the latest.</p>
+    </div>
+
+    <div class="howto-cols">
+      <div class="howto-col">
+        <h3 style="color:var(--navy);">For Branch Managers</h3>
+
+        <h4>The monthly rhythm</h4>
+        <p>Around the 1st of each month, the system checks who's crossed an hours mark and flags them for
+        review — split into <b>qualified</b> (hours and every performance metric clear the bar) and
+        <b>not qualified</b> (tells you exactly which metric is holding them back).</p>
+
+        <h4>Your job</h4>
+        <p>Approve a qualified promotion, or deny it. A denial needs a real, written reason tied to an actual
+        CHOICES observation — a coaching-side damage note can <b>never</b> be the stated reason (see the
+        firewall on Decision #06/#18). Approved promotions push straight into Rippling — no separate
+        paperwork.</p>
+
+        <h4>Part-Time Lead → Junior Lead needs your judgment, not just data</h4>
+        <p>This is the one gate that isn't purely automatic. A Part-Time Lead becomes eligible at 400 hours
+        worked as a lead, or 80%+ of jobs led across 2 back-to-back pay periods — but they only actually get
+        promoted if your branch has an opening for another Junior Lead. If you don't need one right now,
+        that's a real "not yet," not a system error.</p>
+
+        <h4>What to tell someone who has the hours but not the bar</h4>
+        <p>Be specific: "you've got the hours, but your Samsara score needs to come up before you clear the
+        bar" — not a vague "not this time." They're automatically re-evaluated next month; there's nothing
+        for them to file or request.</p>
+
+        <h4>No grandfathering</h4>
+        <p>Everyone gets evaluated under the new rules the moment this launches — including someone who was
+        about to hit an old tenure-only promotion. Nobody loses their current title or pay; this only changes
+        what earns the <i>next</i> one.</p>
+
+        <h4>Still being finalized</h4>
+        <p>The performance bars — especially the fast-track bar — aren't locked yet. They're coming off a
+        real look-back at team data, not a preset number. Expect an update before this goes live
+        company-wide.</p>
+      </div>
+
+      <div class="howto-col">
+        <h3 style="color:var(--navy);">For Movers</h3>
+
+        <h4>Two ways to get promoted</h4>
+        <p><b>Standard path:</b> work enough hours in your current role, and keep your attendance, driving,
+        and damages all above the minimum bar. Once both are true, you're eligible.</p>
+        <p><b>Fast path:</b> if your performance is excellent — well above the standard bar — over roughly
+        your last 3 months, you can get promoted with fewer hours worked. The exact bar for "excellent" is
+        still being set.</p>
+
+        <h4>What counts</h4>
+        <ul style="margin:0 0 10px 22px;">
+          <li><b>Attendance</b> — lates and call-outs</li>
+          <li><b>Driver score (Samsara)</b> — your own driving: no rolling stops, no phone use, safe
+          following distance</li>
+          <li><b>Damages</b> — scored for the whole crew on a job, not pinned on one person unless someone's
+          clearly and individually responsible</li>
+        </ul>
+
+        <h4>You get checked every month, automatically</h4>
+        <p>Don't qualify this month? You don't have to do anything — you'll be looked at again next month.
+        Your <b>most recent ~3 months</b> matter most, so a rough patch a while back doesn't follow you
+        forever.</p>
+
+        <h4>Part-Time Lead is a little different</h4>
+        <p>Getting from Part-Time Lead to Junior Lead isn't just about your hours — your branch also has to
+        actually need another Junior Lead. Ask your manager where that stands.</p>
+
+        <h4>Nobody gets demoted</h4>
+        <p>This only affects what it takes to earn your <i>next</i> promotion. Where you are today doesn't
+        change.</p>
+
+        <h4>Questions?</h4>
+        <p>Talk to your branch manager — they can tell you exactly where you stand and what would move the
+        needle fastest.</p>
+      </div>
+    </div>
+  </div><!-- /tab-panel-howto -->
+
 </div>
 
 <button type="button" class="export-fab" id="export-fab">📋 Export workshop agenda</button>
@@ -2286,6 +2462,46 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') modal.classList.remove('show');
   });
+})();
+</script>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'mphq-active-tab';
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  var panels = {
+    framework: document.getElementById('tab-panel-framework'),
+    history: document.getElementById('tab-panel-history'),
+    howto: document.getElementById('tab-panel-howto')
+  };
+
+  function activate(name, skipHash) {
+    if (!panels[name]) name = 'framework';
+    btns.forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-tab') === name);
+    });
+    Object.keys(panels).forEach(function (k) {
+      panels[k].classList.toggle('active', k === name);
+    });
+    try { localStorage.setItem(STORAGE_KEY, name); } catch (e) {}
+    if (!skipHash && name !== 'framework' && location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { activate(b.getAttribute('data-tab')); });
+  });
+
+  // A #decision-XX or other in-framework link always wins and opens that tab.
+  var hashTargetsFramework = location.hash && document.querySelector('#tab-panel-framework ' + location.hash);
+  if (hashTargetsFramework) {
+    activate('framework', true);
+  } else {
+    var stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    activate(stored || 'framework', true);
+  }
 })();
 </script>
 </body>
