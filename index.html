@@ -1542,6 +1542,30 @@
 
   <div class="changelog">
     <div class="log-entry">
+      <div class="log-date">8/20/2026 (5th session) · Table made editable in place; wording + typo fixes; two new How It Works items</div>
+      <div class="log-body">
+        <b>Ladder table is now interactively editable</b> — click "✏️ Edit Table" above it and any Standard/Fast
+        Track hours or performance-bar cell can be typed over directly, no full page regen needed. Honest
+        about the architecture: edits save to this browser's <code>localStorage</code>
+        (<code>mphq-table-overrides</code>, a new key — doesn't touch existing <code>mphq-*</code> review-state
+        keys) so they survive a reload on the SAME device, but they are <b>not</b> visible to anyone else and
+        don't change the published page — a banner says so whenever an edit is active, with "Reset to
+        published" and "Copy edited HTML" (grabs the live tbody markup to hand to Linda or paste into the
+        repo) sitting right next to it. This is the in-place editing Paul asked for on 8/20's 2nd call,
+        explicitly deferred at the time ("not something you have to do right now").
+        <br><br>
+        <b>Wording:</b> "the team must actually need another Junior Lead" simplified to <b>"based on business
+        need for a Lead"</b> everywhere it appeared (the ‡ table cell, the ‡ callout, Decision #16, and both
+        columns of How It Works). <b>Typo:</b> SamSara → <b>Samsara</b> throughout.
+        <br><br>
+        <b>How It Works, two additions:</b> (1) any promotion takes effect at the <b>start of the following
+        pay period</b>, never mid-period, so title and pay change land the same day — added to both the
+        manager and mover columns; (2) movers can already check their general performance today in the
+        <b>Einstein Games app</b>, ahead of any dedicated promotion-status view being built. <i>Edited by
+        Linda per Anne's 8/20 direction.</i>
+      </div>
+    </div>
+    <div class="log-entry">
       <div class="log-date">8/20/2026 (4th session) · Added tab navigation — Decision History + How It Works</div>
       <div class="log-body">
         Per Anne's ask: the page now has three tabs — <b>Framework &amp; Decisions</b> (everything that was
