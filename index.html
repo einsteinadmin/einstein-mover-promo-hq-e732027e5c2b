@@ -408,12 +408,13 @@
     <div class="ft-eyebrow" style="color: var(--teal);">Ladder fix + fast-track correction · 8/19 (Anne + Paul + Matisen)</div>
     <p style="color: var(--ink);"><b>Part-Time Lead added as its own rung</b> — it was missing from this table
     entirely (Paul, 8/19: "at a minimum, we do need to add part time lead into this run because every mover
-    should be going from lead and training to part time lead, then to junior lead"). LIT itself carries no
-    gate — it's the starting bucket; <b>455 hrs / 7.0 bar is the gate INTO Part-Time Lead</b>, not out of LIT.
-    Plain-English week/month equivalents added to every hours cell per Paul's ask, so this reads without doing
-    math. <b>Fast-track floor corrected 560 → 595</b> (17 wks × 35 hrs) — 560 was a leftover from the old
-    40-hr/wk basis (560 ÷ 35 = 16 wks, one short of the intended 4-month/17-wk fast-track); see
-    <a href="#decision-04">Decision #04</a>.</p>
+    should be going from lead and training to part time lead, then to junior lead"). LIT and Part-Time Lead
+    share one hours/bar requirement — <b>455 hrs / 7.0 bar covers the whole LIT→PTL stretch</b> (shown spanning
+    both rows below) — the only thing that actually differs between them is pay: PTL adds the $1/hr lead
+    premium once someone is actually working lead jobs, LIT doesn't. Plain-English week/month equivalents added
+    to every hours cell per Paul's ask, so this reads without doing math. <b>Fast-track floor corrected 560 →
+    595</b> (17 wks × 35 hrs) — 560 was a leftover from the old 40-hr/wk basis (560 ÷ 35 = 16 wks, one short of
+    the intended 4-month/17-wk fast-track); see <a href="#decision-04">Decision #04</a>.</p>
   </div>
 
   <div class="table-scroll">
@@ -422,8 +423,8 @@
         <tr><th>Rung</th><th>Min. Hours (regular)</th><th>Fast-track hours</th><th>Performance Bar</th><th>Pay Range</th><th>PTO</th></tr>
       </thead>
       <tbody>
-        <tr><td class="rung">Lead in Training (LIT)</td><td>—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">starting bucket, no gate</span></td><td>—</td><td>—</td><td>$19–20</td><td>—</td></tr>
-        <tr><td class="rung">Part-Time Lead</td><td>455<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈13 wks ≈ 3 months</span></td><td>—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track — already fast</span></td><td>7.0</td><td>$19–20 (+$1/hr lead premium)</td><td>—</td></tr>
+        <tr><td class="rung">Lead in Training (LIT)</td><td rowspan="2">455<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈13 wks ≈ 3 months</span></td><td rowspan="2">—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track — already fast</span></td><td rowspan="2">7.0</td><td>$19–20</td><td rowspan="2">—</td></tr>
+        <tr><td class="rung">Part-Time Lead</td><td>$19–20 (+$1/hr lead premium)</td></tr>
         <tr><td class="rung">Junior Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>7.5</td><td>$20–21</td><td>—</td></tr>
         <tr><td class="rung">Regular Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>8.0</td><td>$20.50–21.50</td><td>—</td></tr>
         <tr><td class="rung">Senior Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>9.0</td><td>$21–22</td><td>—</td></tr>
@@ -967,6 +968,10 @@
         consequence. The integrity dashboard proper watches damage-assignment rates + attendance-coding per
         branch, baselined before launch.</p>
       </details>
+      <p><b>Amendment, 8/20 (from the Decision #18 damages-attribution compromise):</b> a coaching-side
+      individual-fault note can never be the written reason a manager cites when denying a flagged promotion.
+      The denial reason has to be an actual CHOICES observation, not damages data routed around the #18
+      firewall. See <a href="#decision-18">Decision #18</a>.</p>
       <div class="owes done"><b>Anne + Paul workshop ratifies</b></div>
     </div>
     <div class="dcard decided" id="decision-07" data-decision="07">
@@ -1171,30 +1176,86 @@
       <div class="owes"><b>Anne + Cameron ratify Paul's monthly-cadence + Monday-pulse-automation proposal
       · define the actual trigger threshold</b></div>
     </div>
-    <div class="dcard" style="border-top-color: var(--orange);" id="decision-18" data-decision="18">
+    <div class="dcard decided" id="decision-18" data-decision="18">
       <div class="d-num">18</div>
-      <span class="locked-badge" style="background:var(--orange-50); color:var(--orange-dark); border-color:var(--orange);">⚠ Open — raised 8/19, Cameron to confirm</span>
+      <span class="locked-badge">✅ Compromise landed 8/20 (Cameron + Paul) — six amendments close the design</span>
       <h3>Damages attribution — single vs. multi-mover moves</h3>
       <p><b>The question:</b> most moves run multiple movers on one crew. When a damage happens and it's not
       obvious whose fault it was, how does the damages score get split among the movers who were on that
       job?</p>
       <p><b>Matisen, 8/19:</b> the claims team now has a board (synced daily from Rippling + Q3 image jobs)
       where a claim gets assigned to a move, which populates the movers on that contract; a claims rep can
-      then tag specific individuals as responsible if someone owns up. Three options on the table:</p>
-      <ul style="margin:0 0 10px 22px; color:var(--ink);">
-        <li><b>Team-hours split</b> — distribute the damage across the movers on that job weighted by their
-        hours on the contract.</li>
-        <li><b>Even split, always</b> — every mover on the job gets an equal share, responsible-party or not.</li>
-        <li><b>Responsibility-weighted</b> — if someone's tagged responsible, it lands on them; if nobody
-        fesses up (the common case — Matisen's gut estimate: "50/50" or better, "guys are typically
-        accountable for their stuff"), it splits evenly across the whole crew.</li>
-      </ul>
-      <p><b>The gaming risk, flagged by Paul:</b> responsibility-weighted attribution creates a bad incentive
-      if someone's already at a zero on damages — "hey Madison, yours is already at zero, take this one for
-      us." Anne: "people game systems," not a reason to avoid the design, but a reason to watch for it once
-      live.</p>
-      <p><b>Not resolved this session</b> — Paul: "we'll confirm with Cameron that he's on the same page."</p>
-      <div class="owes"><b>Cameron confirms the attribution model · watch for gaming once live</b></div>
+      then tag specific individuals as responsible if someone owns up. Three raw options were on the table:
+      team-hours split, even split always, or responsibility-weighted. Paul flagged a gaming risk on
+      responsibility-weighted — a mover already at zero on damages could be pressured to "take the hit" for
+      the crew.</p>
+      <p><b>Resolved 8/20 (Cameron + Paul) — the working compromise:</b></p>
+      <ol style="margin:0 0 10px 22px; color:var(--ink);">
+        <li>Build the technical capability for individual-fault attribution now.</li>
+        <li>Record individual fault as a <b>coaching-side note only</b>.</li>
+        <li><b>Team/job-level attribution governs the bonus AND the promotion gates at launch</b> — this
+        matches the existing 2026 mover bonus scoping (job-level: "only damages on moves they were personally
+        on").</li>
+        <li>Test, and gauge mover reaction, before ever deciding whether individual fault enters pay.</li>
+      </ol>
+      <p><b>Why team-level, on the merits (not just as a truce):</b> two independent review panels (an
+      AI-simulated author council + an internal staff analysis, both run 8/20) came back unanimous — individual
+      attribution only benefits people who <i>don't</i> claim fault, punishes honesty, and invites blame-shifting
+      onto the claims team. Cameron's own data point cuts the same way: leads with better oversight have
+      co-pilots with dramatically lower damage rates, i.e. lead quality shapes co-pilot outcomes — an argument
+      for shared accountability, not individual blame. Paul's counter-case ("Paul moved the fridge") is real but
+      narrow — see tier (c) below, it already has a home.</p>
+      <details><summary>The six amendments that close the design gaps (from the 8/20 review)</summary>
+        <ol style="margin:8px 0 0 22px; color:var(--ink);">
+          <li><b>Give the test a verdict date and criteria.</b> "Test and gauge reaction" has no gate metric,
+          review date, or decision-maker yet — set all three, with team-level-stands as the default unless the
+          data clears a published bar.</li>
+          <li><b>Write the firewall down.</b> "Coaching-side fault notes never touch bonus math or gate math"
+          must appear in the published Oct 1 framework and the comp philosophy, not live as an understanding.
+          Also: coaching fault-notes cannot be the written reason a manager cites when denying a flagged
+          promotion (cross-ref <a href="#decision-06">Decision #06</a>'s denial mechanism).</li>
+          <li><b>No silent notes.</b> Every individual fault note requires a same-day, face-to-face conversation
+          the mover hears first. Sequencing: train branch managers on the feedback model BEFORE the attribution
+          capability goes live.</li>
+          <li><b>Name three tiers in the published doc:</b> (a) <b>Job-level</b> ("moves you were on") — governs
+          bonus and gates, already the live mechanic; (b) <b>Individual-fault</b> — coaching lane only; (c)
+          <b>Clear-cut objective incidents</b> — truck accidents already flow through Samsara review with
+          individual consequences today; this is where Paul's fridge case lives, not a new general mechanism.</li>
+          <li><b>Make honesty the celebrated behavior.</b> Install "raise your hand first" as a praised, named
+          behavior — a mover who self-reports before the customer finds it gets recognized in the huddle. Canary
+          metric: <b>claims/self-report volume must not drop</b> once fault-notes start — if it does, the
+          perverse incentive is live even in coaching-only mode.</li>
+          <li><b>Reconcile the ruling record.</b> Post a dated addendum to the 7/30 QGR ruling; update this card
+          and the reconciled framework doc to the three-tier language; update the manager-tagging build spec to
+          tag coaching-side only.</li>
+        </ol>
+      </details>
+      <details><summary>Evidence bar to ever move individual fault into pay</summary>
+        <ul style="margin:8px 0 0 22px; color:var(--ink);">
+          <li>1–2 quarters of clean attribution data showing repeat-offender concentration, not noise</li>
+          <li>Inter-rater consistency — managers tag the same incident the same way across branches</li>
+          <li>Canary holds — claims/self-report volume steady or rising through the coaching-only phase</li>
+          <li>Exposure-normalized rate (damages per move/hour), validated like the fleet-safety 300-mile gate</li>
+          <li>No "take the hit" skew — fault not concentrating on junior/zero-balance movers</li>
+          <li>Lead-vs-co-pilot split shows co-pilots aren't structurally penalized</li>
+          <li>Published, standardized weighting movers see before it touches a dollar</li>
+          <li>Mover-reaction reads (eNPS, Start-Stop-Keep, field weeks) hold</li>
+          <li>Attorney confirm on notice requirements and coaching-record discoverability</li>
+        </ul>
+        <p style="margin-top:8px;">If the data can't clear the bar by the review date, the test ends and
+        team-level stands permanently. If it ever does move: damages stay a threshold/gate, never a scaling
+        penalty, with a cap on what one incident can cost.</p>
+      </details>
+      <p style="margin-top:10px; font-size:.82rem; color:var(--gray);">Source: Damage Attribution Decision
+      Brief, prepared 8/20/2026 for Cameron/Paul/Anne by Albert (Cameron's COS); author-council record at
+      Supporting Projects/Compensation/consultants-record-damage-attribution-2026-08-20.md.</p>
+      <div class="owes"><b>Cameron:</b> ratify the amended design, post the dated addendum to the 7/30 ruling ·
+      <b>Anne:</b> fold the firewall + no-denial-on-coaching-notes rules into the published framework, attorney-
+      confirm items, manager-tagging spec change (this card done 8/20) · <b>Paul:</b> resolve the review-cadence
+      conflict (monthly vs. the 7/3-locked biweekly — see <a href="#decision-05">#05</a>) before the framework
+      ships, plus the claims-team dispute-intake lane · <b>Shared:</b> set the test's review date/gate
+      criteria/decision-maker, sequence BM feedback-model training ahead of capability launch, stand up "raise
+      your hand first"</div>
     </div>
   </div>
 
@@ -1339,6 +1400,30 @@
   </div>
 
   <div class="changelog">
+    <div class="log-entry">
+      <div class="log-date">8/20/2026 · Decision #18 resolved (damages attribution); ladder table simplified</div>
+      <div class="log-body">
+        <b>Decision #18 goes from open to decided.</b> Cameron + Paul landed a compromise 8/20 on multi-mover
+        damages attribution: build individual-fault capability now, but record it as a coaching-side note
+        only — <b>team/job-level attribution governs the bonus and the promotion gates at launch</b>, matching
+        the existing 2026 mover bonus scoping. Two independent review panels (AI author-council + internal
+        staff analysis) came back unanimous that this is right on the merits, then converged on six amendments
+        to close the design: a verdict date + criteria for the "test and gauge reaction" phase · the
+        coaching-notes-never-touch-pay firewall written into the published framework (and into
+        <a href="#decision-06">#06</a>'s denial mechanism — a fault note can never be the stated reason for a
+        promotion denial) · no silent fault notes (same-day, face-to-face, mover hears first) · three named
+        tiers (job-level / individual-fault-coaching-only / clear-cut Samsara-tracked incidents) · "raise your
+        hand first" as a celebrated behavior with a self-report-volume canary metric · a dated addendum
+        reconciling the 7/30 ruling record. Full evidence bar for ever moving individual fault into pay, and
+        what breaks if it moves too soon, both now live on the card. Source: Damage Attribution Decision Brief,
+        Albert (Cameron's COS), 8/20/2026 — <a href="https://docs.google.com/document/d/1j5IAuhPdOHKCP5llnE7aLMEK5bpnFZzoXk-wx6CE6-4/edit" target="_blank">Google Doc</a>.
+        <br><br>
+        <b>Ladder table simplified</b> per Anne's ask: Lead in Training and Part-Time Lead now visually share
+        one hours/fast-track/bar cell (455 hrs, no fast track, 7.0 bar) spanning both rows — the only thing
+        that actually differs between them is pay (PTL adds the $1/hr lead premium). <i>Edited by Linda per
+        Anne's 8/20 direction.</i>
+      </div>
+    </div>
     <div class="log-entry">
       <div class="log-date">8/19/2026 · Paul joins as co-owner; six weeks of open items caught up in one working session</div>
       <div class="log-body">
