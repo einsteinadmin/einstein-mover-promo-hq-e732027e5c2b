@@ -362,6 +362,25 @@
     .tab-nav { display: none; }
     .tab-panel { display: block !important; }
   }
+
+  /* ═══ EDITABLE TABLE ═══ */
+  .table-edit-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .edit-toggle-btn {
+    font: inherit; font-size: .85rem; font-weight: 700; color: var(--navy); background: #fff;
+    border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer;
+  }
+  .edit-toggle-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .table-edit-link {
+    font: inherit; font-size: .82rem; font-weight: 700; color: var(--blue); background: none; border: none;
+    cursor: pointer; padding: 0; text-decoration: underline;
+  }
+  .table-edit-note { font-size: .82rem; color: var(--orange-dark); font-weight: 700; }
+  #ladder-table.editing .cell-value {
+    cursor: text; border-radius: 4px; padding: 1px 5px; outline: 1px dashed var(--orange);
+    background: var(--orange-50);
+  }
+  #ladder-table.editing .cell-value:focus { outline: 2px solid var(--orange); background: #fff; }
+  .cell-value.dirty { box-shadow: inset 0 -2px 0 var(--teal); }
 </style>
 </head>
 <body>
@@ -448,25 +467,32 @@
     the intended 4-month/17-wk fast-track); see <a href="#decision-04">Decision #04</a>.</p>
   </div>
 
+  <div class="table-edit-bar">
+    <button type="button" class="edit-toggle-btn" id="table-edit-toggle">✏️ Edit Table</button>
+    <span class="table-edit-note" id="table-edit-note"></span>
+    <button type="button" class="table-edit-link" id="table-reset-btn" style="display:none;">Reset to published</button>
+    <button type="button" class="table-edit-link" id="table-copy-btn" style="display:none;">Copy edited HTML</button>
+  </div>
+
   <div class="table-scroll">
-    <table>
+    <table id="ladder-table">
       <thead>
         <tr><th>Rung</th><th>Standard Track Hours</th><th>Standard Track Performance Bar</th><th>Fast Track Hours</th><th>Fast Track Performance Bar †</th><th>Pay Range</th><th>PTO</th></tr>
       </thead>
       <tbody>
-        <tr><td class="rung">Lead in Training (LIT)</td><td>455<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈13 wks ≈ 3 months</span></td><td>7.0</td><td>—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track</span></td><td>—</td><td>$19–20</td><td>—</td></tr>
-        <tr><td class="rung">Part-Time Lead ‡</td><td>400 hrs as a lead, OR 80%+ led over 2 back-to-back pay periods (min. 8 days worked/period)<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈4 wks for the pay-period path — plus the team must actually need another Junior Lead</span></td><td>—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">not bar-gated — see ‡</span></td><td>—<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track</span></td><td>—</td><td>$19–20 (+$1/hr lead premium)</td><td>—</td></tr>
-        <tr><td class="rung">Junior Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>7.5</td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>TBD</td><td>$20–21</td><td>—</td></tr>
-        <tr><td class="rung">Regular Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>8.0</td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>TBD</td><td>$20.50–21.50</td><td>—</td></tr>
-        <tr><td class="rung">Senior Lead</td><td>910<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td>9.0</td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>TBD</td><td>$21–22</td><td>—</td></tr>
-        <tr><td class="rung">Master Lead</td><td>1,820<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈52 wks ≈ 1 year</span></td><td>9.5</td><td>595<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td>TBD</td><td>$21.50–22.50</td><td>+5 days</td></tr>
-        <tr><td class="rung">Lead General</td><td>1,820 (proposed)<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈1 year — not yet Cameron-ratified</span></td><td>TBD</td><td>1,365 (proposed)<br><span style="font-weight:400;font-size:.85em;color:var(--gray);">splits 910/1,820 — see #12</span></td><td>TBD</td><td>$22–23</td><td>+10 days</td></tr>
+        <tr><td class="rung">Lead in Training (LIT)</td><td><span class="cell-value" data-key="std-hours__lit">455</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈13 wks ≈ 3 months</span></td><td><span class="cell-value" data-key="std-bar__lit">7.0</span></td><td><span class="cell-value" data-key="fast-hours__lit">—</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track</span></td><td><span class="cell-value" data-key="fast-bar__lit">—</span></td><td>$19–20</td><td>—</td></tr>
+        <tr><td class="rung">Part-Time Lead ‡</td><td><span class="cell-value" data-key="std-hours__ptl">400 hrs as a lead, OR 80%+ led over 2 back-to-back pay periods (min. 8 days worked/period)</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈4 wks for the pay-period path — based on business need for a Lead</span></td><td><span class="cell-value" data-key="std-bar__ptl">—</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">not bar-gated — see ‡</span></td><td><span class="cell-value" data-key="fast-hours__ptl">—</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">no fast track</span></td><td><span class="cell-value" data-key="fast-bar__ptl">—</span></td><td>$19–20 (+$1/hr lead premium)</td><td>—</td></tr>
+        <tr><td class="rung">Junior Lead</td><td><span class="cell-value" data-key="std-hours__junior">910</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td><span class="cell-value" data-key="std-bar__junior">7.5</span></td><td><span class="cell-value" data-key="fast-hours__junior">595</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td><span class="cell-value" data-key="fast-bar__junior">TBD</span></td><td>$20–21</td><td>—</td></tr>
+        <tr><td class="rung">Regular Lead</td><td><span class="cell-value" data-key="std-hours__regular">910</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td><span class="cell-value" data-key="std-bar__regular">8.0</span></td><td><span class="cell-value" data-key="fast-hours__regular">595</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td><span class="cell-value" data-key="fast-bar__regular">TBD</span></td><td>$20.50–21.50</td><td>—</td></tr>
+        <tr><td class="rung">Senior Lead</td><td><span class="cell-value" data-key="std-hours__senior">910</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈26 wks ≈ 6 months</span></td><td><span class="cell-value" data-key="std-bar__senior">9.0</span></td><td><span class="cell-value" data-key="fast-hours__senior">595</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td><span class="cell-value" data-key="fast-bar__senior">TBD</span></td><td>$21–22</td><td>—</td></tr>
+        <tr><td class="rung">Master Lead</td><td><span class="cell-value" data-key="std-hours__master">1,820</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈52 wks ≈ 1 year</span></td><td><span class="cell-value" data-key="std-bar__master">9.5</span></td><td><span class="cell-value" data-key="fast-hours__master">595</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈17 wks ≈ 4 months</span></td><td><span class="cell-value" data-key="fast-bar__master">TBD</span></td><td>$21.50–22.50</td><td>+5 days</td></tr>
+        <tr><td class="rung">Lead General</td><td><span class="cell-value" data-key="std-hours__leadgeneral">1,820 (proposed)</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">≈1 year — not yet Cameron-ratified</span></td><td><span class="cell-value" data-key="std-bar__leadgeneral">TBD</span></td><td><span class="cell-value" data-key="fast-hours__leadgeneral">1,365 (proposed)</span><br><span style="font-weight:400;font-size:.85em;color:var(--gray);">splits 910/1,820 — see #12</span></td><td><span class="cell-value" data-key="fast-bar__leadgeneral">TBD</span></td><td>$22–23</td><td>+10 days</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:.82rem;color:var(--gray);margin-top:6px;">All hours figures assume the locked 35-hr/wk basis (<a href="#decision-07">Decision #07</a>). Fast-track hours require sustained top-tier performance over that window — see <a href="#decision-04">Decision #04</a> for how that's measured.</p>
-  <p style="font-size:.85rem;color:var(--ink);background:var(--orange-50);border:1px solid var(--orange);border-radius:8px;padding:10px 14px;margin-top:8px;"><b>† Fast-track hours are contingent on a score across all three performance metrics</b> — <b>driver score (SamSara)</b>, <b>attendance</b>, and <b>damages</b> — over a fixed trailing ~455-hr (~3 month) window, not just clearing the standard bar. <b>Bar number not yet set</b> (see <a href="#decision-04">Decision #04</a>) — Paul, 8/20: "we're almost certainly not going to do 10"; the real number comes from Matisen's look-back data (targeting something like the top ~10% of the team qualifying), not a preset perfect score. <b>Re-checked every month</b> from the moment a mover crosses the fast-track hours mark, using that same ~455-hr trailing window, all the way up to the regular-track hours gate — not a one-time check (see #04 for the full walkthrough).</p>
-  <p style="font-size:.85rem;color:var(--ink);background:var(--orange-50);border:1px solid var(--orange);border-radius:8px;padding:10px 14px;margin-top:8px;"><b>‡ Part-Time Lead → Junior Lead is not hours+bar gated like the rest of the ladder.</b> It clears when a mover hits <b>400 hours worked as a lead, OR leads 80%+ of jobs across 2 back-to-back pay periods with a minimum of 8 days worked in each period</b> (≈4 weeks) — pulled from existing Einstein mover pay documentation, not a new number. On top of that, it's still <b>manager/need-gated</b>: a branch has to actually have an opening for another Junior Lead. Full detail on <a href="#decision-16">Decision #16</a>.</p>
+  <p style="font-size:.82rem;color:var(--gray);margin-top:6px;">All hours figures assume the locked 35-hr/wk basis (<a href="#decision-07">Decision #07</a>). Fast-track hours require sustained top-tier performance over that window — see <a href="#decision-04">Decision #04</a> for how that's measured. Click <b>Edit Table</b> above to change any hours or bar number directly — see the note that appears for how that gets made official.</p>
+  <p style="font-size:.85rem;color:var(--ink);background:var(--orange-50);border:1px solid var(--orange);border-radius:8px;padding:10px 14px;margin-top:8px;"><b>† Fast-track hours are contingent on a score across all three performance metrics</b> — <b>driver score (Samsara)</b>, <b>attendance</b>, and <b>damages</b> — over a fixed trailing ~455-hr (~3 month) window, not just clearing the standard bar. <b>Bar number not yet set</b> (see <a href="#decision-04">Decision #04</a>) — Paul, 8/20: "we're almost certainly not going to do 10"; the real number comes from Matisen's look-back data (targeting something like the top ~10% of the team qualifying), not a preset perfect score. <b>Re-checked every month</b> from the moment a mover crosses the fast-track hours mark, using that same ~455-hr trailing window, all the way up to the regular-track hours gate — not a one-time check (see #04 for the full walkthrough).</p>
+  <p style="font-size:.85rem;color:var(--ink);background:var(--orange-50);border:1px solid var(--orange);border-radius:8px;padding:10px 14px;margin-top:8px;"><b>‡ Part-Time Lead → Junior Lead is not hours+bar gated like the rest of the ladder.</b> It clears when a mover hits <b>400 hours worked as a lead, OR leads 80%+ of jobs across 2 back-to-back pay periods with a minimum of 8 days worked in each period</b> (≈4 weeks) — pulled from existing Einstein mover pay documentation, not a new number. On top of that, it's still <b>manager/need-gated</b>: promotion is based on business need for a Lead. Full detail on <a href="#decision-16">Decision #16</a>.</p>
 
   <div class="rules-grid">
     <div class="rule evolved"><b>Sustained = 3 consecutive months at bar</b>
@@ -1230,8 +1256,8 @@
       <p><b>✅ Confirmed 8/20 (Anne + Paul):</b> Part-Time Lead → Junior Lead requires <b>back-to-back pay
       periods leading at least 80% of the time (minimum 4+ days/week), OR a minimum of 400 hours worked as a
       lead</b> — pulled straight from the existing Einstein mover pay documentation, not a new number. Paul:
-      "we did confirm the four hundred." This stays manager/need-gated on top of the threshold (a branch has
-      to actually need another lead) — it's not purely automated like the rungs above it, but the eligibility
+      "we did confirm the four hundred." This stays manager/need-gated on top of the threshold — promotion is
+      based on business need for a Lead, not purely automated like the rungs above it — but the eligibility
       number itself is no longer an open question.</p>
       <div class="owes"><b>Anne + Paul decide: count PTL hours toward the ladder or not (this card's original
       question) · if yes, derive hours from the $1/hr pay differential since Rippling won't split it
@@ -1603,7 +1629,7 @@
         Posted to the rock pulse with Cameron + Paul tagged.
         <br><br>
         <b>Fast-track hours column called out</b> in the Framework table — added a † footnote making explicit
-        that fast-track hours require a score across all three performance metrics (driver score/SamSara,
+        that fast-track hours require a score across all three performance metrics (driver score/Samsara,
         attendance, damages) over the window, not just clearing the standard bar; missing any one of the three
         drops back to the regular track. Hedged the bar itself to "currently a perfect 10, under review" (not
         yet locked — see #04) after Anne flagged it shouldn't contradict #04's still-open bar-generosity
@@ -1962,14 +1988,19 @@
 
         <h4>Part-Time Lead → Junior Lead needs your judgment, not just data</h4>
         <p>This is the one gate that isn't purely automatic. A Part-Time Lead becomes eligible at 400 hours
-        worked as a lead, or 80%+ of jobs led across 2 back-to-back pay periods — but they only actually get
-        promoted if your branch has an opening for another Junior Lead. If you don't need one right now,
-        that's a real "not yet," not a system error.</p>
+        worked as a lead, or 80%+ of jobs led across 2 back-to-back pay periods — but promotion is based on
+        business need for a Lead. If there's no need right now, that's a real "not yet," not a system
+        error.</p>
 
         <h4>What to tell someone who has the hours but not the bar</h4>
         <p>Be specific: "you've got the hours, but your Samsara score needs to come up before you clear the
         bar" — not a vague "not this time." They're automatically re-evaluated next month; there's nothing
         for them to file or request.</p>
+
+        <h4>When a promotion actually takes effect</h4>
+        <p>Any promotion goes live at the <b>start of the following pay period</b> — never mid-period. That
+        keeps the title change and the pay change landing on the same day, so there's no gap where someone's
+        doing the new job at the old rate.</p>
 
         <h4>No grandfathering</h4>
         <p>Everyone gets evaluated under the new rules the moment this launches — including someone who was
@@ -2001,14 +2032,22 @@
           clearly and individually responsible</li>
         </ul>
 
+        <h4>Where to check your own performance</h4>
+        <p>Your general performance metrics come from the <b>Einstein Games app</b> — that's the same place
+        you can already check your own numbers today, before a dedicated promotion-status view exists.</p>
+
         <h4>You get checked every month, automatically</h4>
         <p>Don't qualify this month? You don't have to do anything — you'll be looked at again next month.
         Your <b>most recent ~3 months</b> matter most, so a rough patch a while back doesn't follow you
         forever.</p>
 
         <h4>Part-Time Lead is a little different</h4>
-        <p>Getting from Part-Time Lead to Junior Lead isn't just about your hours — your branch also has to
-        actually need another Junior Lead. Ask your manager where that stands.</p>
+        <p>Getting from Part-Time Lead to Junior Lead isn't just about your hours — it's also based on
+        business need for a Lead. Ask your manager where that stands.</p>
+
+        <h4>When your new pay starts</h4>
+        <p>A promotion always takes effect at the <b>start of the next pay period</b> — not partway through
+        one. Your title and your new pay change on the same day.</p>
 
         <h4>Nobody gets demoted</h4>
         <p>This only affects what it takes to earn your <i>next</i> promotion. Where you are today doesn't
@@ -2516,6 +2555,95 @@
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     activate(stored || 'framework', true);
   }
+})();
+</script>
+
+<script>
+(function () {
+  var OVERRIDES_KEY = 'mphq-table-overrides';
+  var table = document.getElementById('ladder-table');
+  var toggleBtn = document.getElementById('table-edit-toggle');
+  var resetBtn = document.getElementById('table-reset-btn');
+  var copyBtn = document.getElementById('table-copy-btn');
+  var noteEl = document.getElementById('table-edit-note');
+  if (!table) return;
+  var cells = Array.prototype.slice.call(table.querySelectorAll('.cell-value'));
+  var editing = false;
+
+  function getOverrides() {
+    try { return JSON.parse(localStorage.getItem(OVERRIDES_KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function setOverrides(obj) {
+    try { localStorage.setItem(OVERRIDES_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function applyOverrides() {
+    var ov = getOverrides();
+    var any = false;
+    cells.forEach(function (c) {
+      var k = c.getAttribute('data-key');
+      if (ov[k] !== undefined && ov[k] !== c.textContent) {
+        c.textContent = ov[k];
+        c.classList.add('dirty');
+        any = true;
+      }
+    });
+    updateNote(any);
+  }
+  function updateNote(hasDirty) {
+    var anyDirty = hasDirty !== undefined ? hasDirty : cells.some(function (c) { return c.classList.contains('dirty'); });
+    if (anyDirty) {
+      noteEl.textContent = 'You have local edits — visible on this device only until copied and pushed to the repo.';
+      resetBtn.style.display = '';
+      copyBtn.style.display = '';
+    } else {
+      noteEl.textContent = editing ? 'Click any highlighted number to edit it.' : '';
+      resetBtn.style.display = 'none';
+      copyBtn.style.display = 'none';
+    }
+  }
+
+  applyOverrides();
+
+  toggleBtn.addEventListener('click', function () {
+    editing = !editing;
+    table.classList.toggle('editing', editing);
+    toggleBtn.classList.toggle('active', editing);
+    toggleBtn.textContent = editing ? '✓ Done Editing' : '✏️ Edit Table';
+    cells.forEach(function (c) { c.setAttribute('contenteditable', editing ? 'true' : 'false'); });
+    updateNote();
+  });
+
+  cells.forEach(function (c) {
+    c.addEventListener('blur', function () {
+      var k = c.getAttribute('data-key');
+      var ov = getOverrides();
+      ov[k] = c.textContent.trim();
+      c.textContent = ov[k];
+      setOverrides(ov);
+      c.classList.add('dirty');
+      updateNote(true);
+    });
+    c.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); c.blur(); }
+    });
+  });
+
+  resetBtn.addEventListener('click', function () {
+    if (!confirm('Reset all table edits on this device back to the published version?')) return;
+    setOverrides({});
+    location.reload();
+  });
+
+  copyBtn.addEventListener('click', function () {
+    var html = table.querySelector('tbody').outerHTML;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(html).then(function () {
+        noteEl.textContent = 'Copied the table\'s HTML — paste it to Linda (or into the repo) to make it official.';
+      }, function () {
+        noteEl.textContent = 'Copy blocked by the browser — select the table and copy manually.';
+      });
+    }
+  });
 })();
 </script>
 </body>
